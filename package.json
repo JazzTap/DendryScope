@@ -1,0 +1,14 @@
+{
+  "name": "@jazztap/dendryscope-pilot",
+  "main": "84acdd99c4e542c7@3452.js",
+  "version": "3452.0.0",
+  "homepage": "https://observablehq.com/@jazztap/dendryscope-pilot",
+  "author": {
+    "name": "Jasmine Otto",
+    "url": "https://observablehq.com/@jazztap"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}

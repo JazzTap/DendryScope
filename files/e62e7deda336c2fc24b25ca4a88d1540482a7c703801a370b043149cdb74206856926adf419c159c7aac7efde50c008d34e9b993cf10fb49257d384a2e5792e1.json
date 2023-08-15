@@ -1,0 +1,6305 @@
+[
+  {
+    "title": "Birthday Candles",
+    "subtitle": "A birthday party for one of the girls in the co-op.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 9,
+        "jerome": 2
+      },
+      "<": {
+        "month": 24
+      },
+      "=": {
+        "birthdaying": 0
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      },
+      "=": {
+        "birthdaying": 1
+      }
+    },
+    "tags": "plot",
+    "Birthday Candles": {
+      "@ooh": "But you don't get invitations so often."
+    },
+    "@ooh": {
+      "@flauberta": "At least Flauberta is here. If that's a comfort."
+    },
+    "@flauberta": {
+      "@making-fun": "She's making fun of you.",
+      "@who-knows": "And the parents wouldn't approve of you trying make-up on.",
+      "@caught": "And the other girls would notice that you know nothing about make-up.",
+      "@hairdressery": "On the other hand, you survived the salon haircut. Why not?"
+    },
+    "@hairdressery": {
+      "view-if": {
+        ">": {
+          "hairdresser": 2
+        },
+        "<": {
+          "hairdresser": 5
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "jerome": 2
+        },
+        "-=": {
+          "world": 1
+        }
+      },
+      "@really-dream": "Maybe she'd be better off practicing the flute."
+    },
+    "@really-dream": {
+      "@private": "That seems like a pretty private revelation.",
+      "@notspeller": "Probably you wouldn't be a speller."
+    },
+    "@caught": {
+      "@pretty-already": "Meaning you're not pretty already?",
+      "@unaware": "Maybe she's unaware of the depth of your incompetence in these matters."
+    },
+    "@unaware": {
+      "@sounds-fair": "Okay, that sounds fair.",
+      "@historical": "Could we do a historical make-up style?"
+    },
+    "@sounds-fair": {
+      "on-arrival": {
+        "+=": {
+          "jerome": 2
+        }
+      }
+    },
+    "@historical": {
+      "on-arrival": {
+        "+=": {
+          "jerome": 1
+        }
+      }
+    },
+    "@pretty-already": {
+      "@blasphemy": "Nice blasphemy there."
+    },
+    "@who-knows": {
+      "@actually": "Hm. Would that work?",
+      "@girl-science": "Girls don't need their science dressed up."
+    },
+    "@actually": {
+      "on-arrival": {
+        "+=": {
+          "jerome": 1
+        }
+      },
+      "@no-change": "What, they don't respond to magnets whenever you go by one?"
+    }
+  },
+  {
+    "title": "Italian Loan Words",
+    "subtitle": "Food",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 2
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "frequency": "100",
+    "tags": "drill",
+    "Italian Loan Words": {
+      "@harpsichord": "HARPSICHORD and PICCOLO.",
+      "@linguine": "LINGUINE, FARFALLE.",
+      "@intaglio": "INTAGLIO.",
+      "@fantoccini": "FANTOCCINI."
+    },
+    "@linguine": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      }
+    },
+    "@intaglio": {
+      "view-if": {
+        ">": {
+          "spelling": 10
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      }
+    },
+    "@fantoccini": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      },
+      "view-if": {
+        ">": {
+          "spelling": 15
+        }
+      }
+    },
+    "@harpsichord": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Bowing Out of the Newsletter",
+    "subtitle": "You have plenty of things to do besides helping Father.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "newslettering": 2,
+        "pedagogue": 0
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "=": {
+        "newslettering": -1
+      },
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "chores",
+    "Bowing Out of the Newsletter": {
+      "@spelling-too-much": "You really need to concentrate on your spelling.",
+      "@do-not-want": "You just don't want to."
+    },
+    "@do-not-want": {
+      "@not-to-me": "Yeah, well, not to me.",
+      "@maybe-for-adults": "Maybe it's funny to adults."
+    },
+    "@not-to-me": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@maybe-for-adults": {
+      "@dunno": "Shrug.",
+      "@that-might-work": "Sure, that might work."
+    },
+    "@that-might-work": {
+      "@said-no": "Stand your ground about not contributing.",
+      "@well-okay": "Well, okay."
+    },
+    "@well-okay": {
+      "on-arrival": {
+        "=": {
+          "newslettering": 3
+        }
+      }
+    },
+    "@spelling-too-much": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Crisis",
+    "subtitle": "A phone call from Mrs. Barron.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "barron-crisis": 2
+      },
+      "<": {
+        "month": 24
+      },
+      ">": {
+        "barrons": 2
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "barron-crisis": 1
+      }
+    },
+    "tags": "menace",
+    "Crisis": {
+      "@hold": "A pause."
+    },
+    "@hold": {
+      "@later": "Later."
+    },
+    "@later": {
+      "@aftermath": "Aftermath."
+    },
+    "@aftermath": {
+      "@how-grown": "How grown up.",
+      "@how-wasteful": "How wasteful."
+    },
+    "@how-grown": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@how-wasteful": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Jam",
+    "subtitle": "Your family makes its yearly jam.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "=": {
+        "month": 2
+      }
+    },
+    "priority": "2",
+    "tags": "chores",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "Jam": {
+      "@destination-one": "Help pick fruit.",
+      "@destination-three": "Help dump in the sugar.",
+      "@destination-four": "Help clean.",
+      "@destination-five": "Help label the jars."
+    },
+    "@destination-one": {
+      "choose-if": {
+        "<": {
+          "age": 9
+        }
+      },
+      "unavailable-subtitle": "You're old enough to do something harder.",
+      "@serves-right": "Serves her right.",
+      "@protein-bugs": "Bugs are just protein."
+    },
+    "@protein-bugs": {
+      "view-if": {
+        "<": {
+          "lettice": 2
+        }
+      },
+      "on-arrival": {
+        "-=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@serves-right": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        },
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@destination-three": {
+      "choose-if": {
+        ">": {
+          "age": 9
+        }
+      },
+      "unavailable-subtitle": "Mother thinks you might spill. Maybe when you're older.",
+      "@your-turn": "Sounds like this one's for you, then.",
+      "@lettice-really": "Lettice really is a klutz."
+    },
+    "@lettice-really": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@destination-four": {
+      "choose-if": {
+        ">": {
+          "age": 10
+        }
+      },
+      "unavailable-subtitle": "You'd have to be up past bed-time for that chore.",
+      "@help-would": "Mother expects too much out of you.",
+      "@sewing-still": "It's late for Mother still to be sewing."
+    },
+    "@help-would": {
+      "go-to": "kitchen-clean",
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@sewing-still": {
+      "go-to": "kitchen-clean",
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    },
+    "@destination-five": {
+      "@home-grown": "Father's very proud of them, but the stickers still look awfully... home-grown.",
+      "@bartering": "These'll make good barter material."
+    },
+    "@home-grown": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@bartering": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Consultation",
+    "subtitle": "Jerome asks an opinion.",
+    "new-page": "yes",
+    "tags": "top",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "jerome": 1
+      },
+      "<": {
+        "child-led": 2,
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "=": {
+        "child-led": 2
+      },
+      "+=": {
+        "jerome": 1
+      }
+    },
+    "Consultation": {
+      "@your-learning": "Your learning is mostly pretty parent-led."
+    },
+    "@your-learning": {
+      "@yes": "Well, okay.",
+      "@no": "Why? It's not like he's been particularly friendly to you."
+    },
+    "@no": {
+      "on-arrival": {
+        "-=": {
+          "jerome": 1
+        }
+      }
+    },
+    "@yes": {
+      "go-to": "objections"
+    },
+    "@objections": {
+      "@is-he": "Is he a genius at anything?",
+      "@what-about": "What about yearly assessments?",
+      "@how-will": "How will you know if the projects are really getting done?",
+      "@sounds-great": "Sounds terrific.",
+      "@sounds-dumb": "This will never work."
+    },
+    "@how-will": {
+      "view-if": {
+        "=": {
+          "projects": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "projects": 1
+        }
+      },
+      "go-to": "objections"
+    },
+    "@what-about": {
+      "view-if": {
+        "=": {
+          "assessments": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "assessments": 1
+        }
+      },
+      "go-to": "objections"
+    },
+    "@sounds-dumb": {
+      "on-arrival": {
+        "-=": {
+          "jerome": 1
+        }
+      }
+    },
+    "@is-he": {
+      "view-if": {
+        "=": {
+          "genius": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "genius": 1
+        }
+      },
+      "go-to": "objections"
+    }
+  },
+  {
+    "title": "J E R O M E",
+    "subtitle": "In which Jerome speaks.",
+    "new-page": "yes",
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "jerome": 1
+      }
+    },
+    "view-if": {
+      ">": {
+        "jerome": 0,
+        "age": 7
+      },
+      "<": {
+        "jerome": 3,
+        "month": 24
+      }
+    },
+    "tags": "plot",
+    "J E R O M E": {
+      "@spell-things": "Forget it and work on spelling.",
+      "@draw-out": "Try to draw him out.",
+      "@draw-out-2": "Try to draw him out."
+    },
+    "@draw-out-2": {
+      "view-if": {
+        ">": {
+          "jerome": 1
+        }
+      },
+      "@deny-all": "Deny all knowledge.",
+      "@laugh": "Laugh.",
+      "@admit": "Cop to some earlier curiosity."
+    },
+    "@draw-out": {
+      "view-if": {
+        "=": {
+          "jerome": 1
+        }
+      },
+      "@ask-why": "What? Why?",
+      "@sympathize": "Anyone would want to escape the Ch\u00e2teau of Mold."
+    },
+    "@sympathize": {
+      "view-if": {
+        "<": {
+          "child-led": 1
+        }
+      },
+      "on-arrival": {
+        "=": {
+          "child-led": 1
+        }
+      }
+    },
+    "@spell-things": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1,
+          "spelling-relief": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Snow Day",
+    "subtitle": "How studying happens when there is snow on the ground.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "month": 10,
+        "age": 7
+      },
+      "<": {
+        "month": 17
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "seasonal",
+    "Snow Day": {
+      "@try-backwards": "Try learning the letters backwards.",
+      "@try-visualizing": "Try visualization tricks."
+    },
+    "@try-backwards": {
+      "go-to": "onward-snow"
+    },
+    "@try-visualizing": {
+      "go-to": "onward-snow"
+    },
+    "@onward-snow": {
+      "@easy-sleep": "It would be easy to fall asleep until the others wake up.",
+      "@snow-reverie": "Or just to stare out into the snow.",
+      "@focus": "But it is important to focus."
+    },
+    "@focus": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        },
+        "-=": {
+          "motivation": 1
+        }
+      },
+      "choose-if": {
+        ">": {
+          "motivation": 0
+        }
+      },
+      "unavailable-subtitle": "You can't bring yourself to do so."
+    }
+  },
+  {
+    "title": "Orange and Purple Christmas",
+    "subtitle": "A Christmas of simplicity.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "poverty": 6
+      },
+      "=": {
+        "month": 12
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "poverty": 1
+      }
+    },
+    "tags": "menace",
+    "Orange and Purple Christmas": {
+      "@not": "So you're not, of course."
+    }
+  },
+  {
+    "title": "Lettice's Aquarium",
+    "subtitle": "Lettice works on a project.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "lettice": 5,
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      },
+      "-=": {
+        "lettice": 1
+      }
+    },
+    "frequency": "200",
+    "tags": "menace",
+    "Lettice's Aquarium": {
+      "@check-what-1": "Check out what she's been working on lately.",
+      "@check-what-2": "Check out what she's been working on lately.",
+      "@check-what-3": "Check out what she's been working on lately.",
+      "@check-what-4": "Check out what she's been working on lately.",
+      "@make-fun": "Correct the spelling on the latest page."
+    },
+    "@make-fun": {
+      "view-if": {
+        ">": {
+          "spelling": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    },
+    "@check-what-1": {
+      "view-if": {
+        "<": {
+          "age": 9
+        }
+      }
+    },
+    "@check-what-2": {
+      "view-if": {
+        "=": {
+          "age": 9
+        }
+      }
+    },
+    "@check-what-3": {
+      "view-if": {
+        "=": {
+          "age": 10
+        }
+      }
+    },
+    "@check-what-4": {
+      "view-if": {
+        ">": {
+          "age": 10
+        }
+      }
+    }
+  },
+  {
+    "title": "Afrikaans Loan Words",
+    "subtitle": "A short list but strange.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 1
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "spelling": 2
+      }
+    },
+    "frequency": "500",
+    "tags": "drill",
+    "Afrikaans Loan Words": {
+      "@rooibos": "ROOIBOS",
+      "@bergwind": "BERGWIND"
+    }
+  },
+  {
+    "title": "Middle School English",
+    "subtitle": "A hired tutor for you.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "english": 0
+      },
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "english": 1
+      }
+    },
+    "tags": "plot",
+    "Middle School English": {
+      "@look-interesting": "Look interesting.",
+      "@ignore": "Ignore them and keep working."
+    },
+    "@ignore": {
+      "go-to": "sara",
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      }
+    },
+    "@look-interesting": {
+      "go-to": "sara",
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Running Away",
+    "subtitle": "You've had enough of your parents.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "parents": 9
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "=": {
+        "month": 30
+      },
+      "+=": {
+        "parents": 1
+      }
+    },
+    "tags": "menace",
+    "Running Away": {
+      "@go-mrs-p": "Go to Mrs. Perry.",
+      "@go-mrs-b": "Go to Mrs. Barron.",
+      "@go-sara": "Go to Sara."
+    },
+    "@go-mrs-b": {
+      "view-if": {
+        ">": {
+          "barrons": 0
+        }
+      },
+      "@boarding": "Boarding school?",
+      "@live-with": "Could you live with the Barrons?",
+      "@mother-would": "Mother would never go for that."
+    },
+    "@go-sara": {
+      "view-if": {
+        ">": {
+          "sara": 0
+        }
+      },
+      "@who-was": "Who was that?",
+      "@probably": "Better not ask. It's probably some feminist friend of Sara's. She looks embarrassed that you saw her."
+    },
+    "@who-was": {
+      "go-to": "explaining"
+    },
+    "@probably": {
+      "go-to": "explaining"
+    },
+    "@explaining": {
+      "@figures": "Figures."
+    },
+    "@figures": {
+      "@no": "No.",
+      "@what-between": "What are you supposed to do instead, then?"
+    },
+    "@boarding": {
+      "go-to": "might-not"
+    },
+    "@live-with": {
+      "go-to": "might-not"
+    },
+    "@mother-would": {
+      "go-to": "might-not"
+    },
+    "@might-not": {
+      "@go-home": "You should go home. This was a bad idea."
+    }
+  },
+  {
+    "title": "Sibling Rivalry",
+    "subtitle": "Struggles with Lettice are coming to a head.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "lettice": 4
+      },
+      "<": {
+        "lettice": 20,
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "menace",
+    "Sibling Rivalry": {
+      "@plan-downfall": "Spike her food with something spicy.",
+      "@baby-lie": "Lie to her about where babies come from.",
+      "@steal-toys": "Hide her colored pencil set."
+    },
+    "@baby-lie": {
+      "choose-if": {
+        "<": {
+          "age": 9
+        }
+      },
+      "unavailable-subtitle": "She wouldn't fall for that any more.",
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@plan-downfall": {
+      "choose-if": {
+        "<": {
+          "age": 10
+        }
+      },
+      "unavailable-subtitle": "Too obvious these days.",
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      },
+      "@beam": "Beam at Lettice over your clean plate."
+    },
+    "@steal-toys": {
+      "view-if": {
+        ">": {
+          "age": 8
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      },
+      "go-to": "grateful; suspicious"
+    }
+  },
+  {
+    "title": "Lettice Revolts",
+    "subtitle": "Lettice tries to escape.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "lettice": 10
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "tags": "menace",
+    "Lettice Revolts": {
+      "@point-out": "Point out that Lettice is just lazy."
+    },
+    "@point-out": {
+      "@manners": "Correct Lettice.",
+      "@your-job": "It's practically your job raising her anyway."
+    },
+    "@manners": {
+      "go-to": "next"
+    },
+    "@your-job": {
+      "go-to": "next"
+    },
+    "@next": {
+      "@probably": "Probably they won't even punish Lettice for this."
+    },
+    "@probably": {
+      "@what": "What!? How in the world is that fair?"
+    },
+    "@what": {
+      "@what-about-spelling": "What about your spelling?",
+      "@standards": "It was your parents who taught you to have standards in the first place."
+    },
+    "@what-about-spelling": {
+      "go-to": "anyway",
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    },
+    "@standards": {
+      "go-to": "anyway",
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@anyway": {
+      "@still": "Still not fair."
+    },
+    "@still": {
+      "on-arrival": {
+        "=": {
+          "month": 26
+        }
+      }
+    }
+  },
+  {
+    "title": "Lawn Mowing",
+    "subtitle": "Time to mow.",
+    "new-page": "yes",
+    "view-if": {
+      "<": {
+        "month": 6
+      },
+      ">": {
+        "age": 7
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "chores",
+    "Lawn Mowing": {
+      "@snip": "Snip the GRAMINOIDS down to size.",
+      "@dig-out": "It's unfair asking a small person to move a table every time the grass needs trimming."
+    },
+    "@snip": {
+      "view-if": {
+        ">": {
+          "spelling": 3
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    },
+    "@dig-out": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Latin Root Studies",
+    "subtitle": "Practical Latin work.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 1
+      },
+      "<": {
+        "month": 24,
+        "latin-study": 2
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "spelling": 2,
+        "latin-study": 1
+      }
+    },
+    "tags": "drill",
+    "frequency": "500",
+    "Latin Root Studies": {
+      "@lights": "IGN-. LUC-. LUMIN-.",
+      "@fer": "FER-. TUL-. LAT-.",
+      "@number": "UNI-. BI-."
+    }
+  },
+  {
+    "title": "Mother and the Haircut",
+    "subtitle": "Teasing Mother for another salon haircut.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "barrons": 0
+      },
+      "=": {
+        "hairdresser": 3
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "hairdresser": 1,
+        "month": 1
+      }
+    },
+    "tags": "plot",
+    "Mother and the Haircut": {
+      "@beg-back": "Beg to go back to the salon.",
+      "@cut-yourself": "Try cutting it yourself."
+    },
+    "@cut-yourself": {
+      "on-arrival": {
+        "=": {
+          "hairdresser": 30
+        }
+      },
+      "@laugh": "Laugh.",
+      "@sulk": "Sulk.",
+      "@like-it": "Insist you like it the new way."
+    },
+    "@sulk": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "go-to": "fixing-hair"
+    },
+    "@like-it": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      },
+      "go-to": "fixing-hair"
+    },
+    "@laugh": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      },
+      "go-to": "fixing-hair"
+    },
+    "@fixing-hair": {
+      "@father-horrid": "Father is the most horrible.",
+      "@mother-horrid": "No, Mother.",
+      "@lettice-worst": "They were both trying to fix it, but Lettice was just gloating."
+    },
+    "@father-horrid": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@mother-horrid": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@lettice-worst": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@beg-back": {
+      "@plea-succeeds": "Look pleadingly at Father."
+    },
+    "@plea-succeeds": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      },
+      "@better": "Maybe it's for the best Mother doesn't realize how out of place she is.",
+      "@worse": "Then again, maybe if she realized, she might change something."
+    },
+    "@better": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      },
+      "go-to": "paying"
+    },
+    "@worse": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "go-to": "paying"
+    },
+    "@paying": {
+      "@assure-her": "Will she think you lied about the price?"
+    },
+    "@assure-her": {
+      "@shaking": "That was far too much money to spend on hair.",
+      "@distract": "Perhaps you'd better be quiet and do your spelling until she feels better."
+    },
+    "@distract": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1,
+          "spelling-relief": 1,
+          "poverty": 1
+        }
+      }
+    },
+    "@shaking": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 3
+        }
+      }
+    }
+  },
+  {
+    "title": "Overheard",
+    "subtitle": "Difficulties with the bank.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "poverty": 6
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "poverty": 1
+      }
+    },
+    "tags": "menace",
+    "go-to": "curriculum-cost; food",
+    "@curriculum-cost": {
+      "go-to": "continuing"
+    },
+    "@food": {
+      "go-to": "continuing"
+    },
+    "@continuing": {
+      "@ignore": "Ignore it as hard as you can.",
+      "@distract": "Distract yourself with all the words for money you can possibly think of.",
+      "@mention": "Mention the fight to Mrs. Barron next time you see her."
+    },
+    "@ignore": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    },
+    "@mention": {
+      "view-if": {
+        ">": {
+          "barrons": 2
+        },
+        "=": {
+          "barrons-card": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "barrons": 1
+        },
+        "-=": {
+          "poverty": 2
+        },
+        "=": {
+          "barrons-card": 1
+        }
+      },
+      "@stare-at": "Stare at all the cans of peaches."
+    },
+    "@distract": {
+      "view-if": {
+        ">": {
+          "spelling-relief": 2
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1,
+          "spelling": 1
+        },
+        "-=": {
+          "poverty": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Moodiness",
+    "subtitle": "Questions of \"attitude.\"",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "parents": 5
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "tags": "menace",
+    "go-to": "cyanosis; hyalithic; psittacotic",
+    "@psittacotic": {
+      "go-to": "explanation",
+      "on-arrival": {
+        "+=": {
+          "psitta": 1
+        }
+      }
+    },
+    "@hyalithic": {
+      "go-to": "explanation",
+      "on-arrival": {
+        "+=": {
+          "hyalithe": 1
+        }
+      }
+    },
+    "@cyanosis": {
+      "go-to": "explanation",
+      "on-arrival": {
+        "+=": {
+          "cyan": 1
+        }
+      }
+    },
+    "@explanation": {
+      "@unfairness": "You have way too many chores.",
+      "@unfairness-2": "You have way too many chores.",
+      "@lettice-gets-away": "Lettice gets away with everything.",
+      "@worldly": "You want to see more of the world.",
+      "@poor": "You're being unreasonable. It's hard on everyone, not having enough money.",
+      "@cyanotic": "CYANOTIC means turning blue.",
+      "@hyalithe": "HYALITHE is an opaque glass.",
+      "@psittacosis": "PSITTACOSIS, with a silent P."
+    },
+    "@poor": {
+      "view-if": {
+        ">": {
+          "poverty": 0
+        }
+      },
+      "on-arrival": {
+        "-=": {
+          "parents": 4
+        },
+        "+=": {
+          "poverty": 2
+        },
+        "=": {
+          "hyalithe": 0,
+          "psitta": 0,
+          "cyan": 0
+        }
+      },
+      "@versus-what": "Instead of what?"
+    },
+    "@worldly": {
+      "view-if": {
+        ">": {
+          "world": 2
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "world": 2
+        },
+        "-=": {
+          "parents": 4
+        },
+        "=": {
+          "hyalithe": 0,
+          "psitta": 0,
+          "cyan": 0
+        }
+      }
+    },
+    "@lettice-gets-away": {
+      "view-if": {
+        ">": {
+          "lettice": 2
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "lettice": 2
+        },
+        "-=": {
+          "parents": 4
+        },
+        "=": {
+          "hyalithe": 0,
+          "psitta": 0,
+          "cyan": 0
+        }
+      }
+    },
+    "@unfairness": {
+      "view-if": {
+        "<": {
+          "newslettering": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        },
+        "=": {
+          "hyalithe": 0,
+          "psitta": 0,
+          "cyan": 0
+        }
+      }
+    },
+    "@unfairness-2": {
+      "view-if": {
+        ">": {
+          "newslettering": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        },
+        "=": {
+          "hyalithe": 0,
+          "psitta": 0,
+          "cyan": 0
+        }
+      }
+    },
+    "@psittacosis": {
+      "go-to": "whatever",
+      "view-if": {
+        "=": {
+          "psitta": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        },
+        "-=": {
+          "parents": 2
+        },
+        "=": {
+          "psitta": 0
+        }
+      }
+    },
+    "@cyanotic": {
+      "go-to": "whatever",
+      "view-if": {
+        "=": {
+          "cyan": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        },
+        "-=": {
+          "parents": 2
+        },
+        "=": {
+          "cyan": 0
+        }
+      }
+    },
+    "@hyalithe": {
+      "go-to": "whatever",
+      "view-if": {
+        "=": {
+          "hyalithe": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        },
+        "-=": {
+          "parents": 2
+        },
+        "=": {
+          "hyalithe": 0
+        }
+      }
+    },
+    "@whatever": {
+      "on-arrival": {
+        "=": {
+          "hyalithe": 0,
+          "psitta": 0,
+          "cyan": 0
+        }
+      },
+      "@whatever-1": "Whatever.",
+      "@whatever-2": "Whatever.",
+      "@whatever-3": "Whatever."
+    },
+    "@whatever-1": {
+      "view-if": {
+        "=": {
+          "not-talking": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "not-talking": 1
+        }
+      }
+    },
+    "@whatever-2": {
+      "view-if": {
+        "=": {
+          "not-talking": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "not-talking": 1
+        }
+      }
+    },
+    "@whatever-3": {
+      "view-if": {
+        ">": {
+          "not-talking": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "not-talking": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Some Help",
+    "subtitle": "Some optional guidance",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 8
+      },
+      "<": {
+        "age": 8
+      }
+    },
+    "priority": "2",
+    "tags": "plot"
+  },
+  {
+    "title": "The State Fair",
+    "subtitle": "In which you attend the State Fair and have the opportunity to examine the exhibits there.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "month": 2,
+        "age": 7
+      },
+      "<": {
+        "month": 5
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "seasonal",
+    "The State Fair": {
+      "@candy": "Buy cotton candy.",
+      "@livestock": "Look at the competition livestock.",
+      "@cake": "Go to the cake exhibition hall.",
+      "@quilts": "Check out the prize-winning quilts.",
+      "@booths": "Go to the home-schooling booths."
+    },
+    "@booths": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@quilts": {
+      "@artistry": "Admire the artistry.",
+      "@prizes": "Admire the prize bows."
+    },
+    "@prizes": {
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        }
+      }
+    },
+    "@candy": {
+      "@candy-poverty": "That was a waste of money.",
+      "@at-least": "At least you got a taste of the fair."
+    },
+    "@candy-poverty": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    },
+    "@at-least": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@livestock": {
+      "view-if": {
+        ">": {
+          "age": 9
+        }
+      }
+    },
+    "@cake": {
+      "view-if": {
+        ">": {
+          "age": 10
+        }
+      }
+    }
+  },
+  {
+    "title": "Zulu Loan Words",
+    "subtitle": "A short list but strange.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 2
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "spelling": 2
+      }
+    },
+    "frequency": "100",
+    "tags": "drill",
+    "Zulu Loan Words": {
+      "@impala": "IMPALA",
+      "@indaba": "INDABA",
+      "@mbaqanga": "MBAQANGA"
+    },
+    "@mbaqanga": {
+      "view-if": {
+        ">": {
+          "spelling": 4
+        }
+      },
+      "@kwela": "What's kwela, then?",
+      "@this-will": "This will do for now."
+    },
+    "@kwela": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        },
+        "-=": {
+          "motivation": 1
+        }
+      },
+      "choose-if": {
+        ">": {
+          "motivation": 0
+        }
+      },
+      "unavailable-subtitle": "You're not motivated to look that up.",
+      "@skiffle": "SKIFFLE?",
+      "@this-will": "This will do for now."
+    },
+    "@skiffle": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        },
+        "-=": {
+          "motivation": 1
+        }
+      },
+      "choose-if": {
+        ">": {
+          "motivation": 1
+        }
+      },
+      "unavailable-subtitle": "You're not motivated enough to follow up there."
+    }
+  },
+  {
+    "title": "The Doll",
+    "subtitle": "No good deed goes unpunished.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "doll": 0
+      },
+      "<": {
+        "lettice": 2,
+        "month": 24
+      },
+      ">": {
+        "age": 7
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      },
+      "=": {
+        "doll": 1
+      }
+    },
+    "tags": "plot",
+    "The Doll": {
+      "@charity": "(Charity. C, H, A--)",
+      "@grab-back": "Grab the doll back."
+    },
+    "@grab-back": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@charity": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Previously Missed Words",
+    "subtitle": "Going over words missed in previous national bees.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 3
+      },
+      "<": {
+        "month": 24,
+        "previous-missed": 2
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "spelling": 1,
+        "previous-missed": 1
+      }
+    },
+    "tags": "drill",
+    "Previously Missed Words": {
+      "@fust": "FUSTANELLA",
+      "@noisette": "NOISETTE",
+      "@canicular": "CANICULAR",
+      "@tiralee": "TIRALEE",
+      "@whole-list": "Do the whole list right now."
+    },
+    "@whole-list": {
+      "choose-if": {
+        ">": {
+          "motivation": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        },
+        "-=": {
+          "motivation": 1
+        }
+      }
+    },
+    "@tiralee": {
+      "view-if": {
+        "<": {
+          "spelling": 4
+        }
+      }
+    },
+    "@canicular": {
+      "view-if": {
+        ">": {
+          "spelling": 4
+        }
+      }
+    },
+    "@fust": {
+      "view-if": {
+        "<": {
+          "spelling": 5
+        }
+      }
+    }
+  },
+  {
+    "title": "Dinner for Tyler Barron",
+    "subtitle": "A strange dinner party.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "barrons": 0,
+        "william": 0
+      },
+      "<": {
+        "tyler": 1,
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "barrons": 1,
+        "tyler": 1
+      }
+    },
+    "tags": "plot",
+    "Dinner for Tyler Barron": {
+      "@easier": "Easier said than done; the bench seat is covered with homework."
+    },
+    "@easier": {
+      "@polite": "It's Tyler's birthday, so he should get to pick.",
+      "@suggest": "Suggest Burger Wizard."
+    },
+    "@polite": {
+      "go-to": "nothere"
+    },
+    "@suggest": {
+      "go-to": "nothere"
+    },
+    "@nothere": {
+      "@hostage": "Nothing for it but to wait."
+    },
+    "@hostage": {
+      "@macaroni": "Macaroni and cheese is at least a recognizable item.",
+      "@hamburger": "And they do have hamburgers even here."
+    },
+    "@macaroni": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      },
+      "@truffle": "That would be... a chocolate candy? Why would you have chocolate candy on macaroni?",
+      "@truffle2": "But there's another definition. Some kind of fungus."
+    },
+    "@truffle2": {
+      "view-if": {
+        ">": {
+          "spelling": 4
+        }
+      },
+      "go-to": "truffle"
+    },
+    "@truffle": {
+      "go-to": "barron-burger"
+    },
+    "@hamburger": {
+      "go-to": "barron-burger"
+    },
+    "@barron-burger": {
+      "@sayyes": "Say yes.",
+      "@sayno": "Say no."
+    }
+  },
+  {
+    "title": "The Homeschooling Newsletter",
+    "subtitle": "Father begins a new project",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "=": {
+        "newslettering": 0
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "tags": "plot",
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "newslettering": 1
+      }
+    },
+    "The Homeschooling Newsletter": {
+      "@your-choice": "Discourage the poetry.",
+      "@mom-choice": "Leave it to Mother to field this."
+    },
+    "@your-choice": {
+      "go-to": "next"
+    },
+    "@mom-choice": {
+      "go-to": "next"
+    },
+    "@next": {
+      "@destination-one": "Volunteer to provide some puzzle content.",
+      "@destination-two": "Suggest including some drawings by Lettice.",
+      "@enough-already": "Say they already have plenty of content."
+    },
+    "@enough-already": {
+      "go-to": "conclusion"
+    },
+    "@destination-one": {
+      "go-to": "conclusion",
+      "on-arrival": {
+        "+=": {
+          "pedagogue": 1
+        }
+      }
+    },
+    "@destination-two": {
+      "@explain": "Lettice should know what you're talking about.",
+      "@father-no": "It doesn't look like Father wants you to bring it up."
+    },
+    "@father-no": {
+      "go-to": "conclusion"
+    },
+    "@explain": {
+      "go-to": "conclusion"
+    }
+  },
+  {
+    "title": "Sunday Afternoon",
+    "subtitle": "Sunday afternoon is traditionally time for playing games.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "menace",
+    "Sunday Afternoon": {
+      "@agree": "Agree. You generally win, but no one minds.",
+      "@too-much": "Say you have too many chores to do.",
+      "@excuse": "Excuse yourself for private spelling drill."
+    },
+    "@excuse": {
+      "choose-if": {
+        ">": {
+          "motivation": 0
+        }
+      },
+      "unavailable-subtitle": "The motivation just isn't there.",
+      "on-arrival": {
+        "+=": {
+          "spelling": 2,
+          "parents": 1
+        },
+        "-=": {
+          "motivation": 1
+        }
+      }
+    },
+    "@agree": {
+      "go-to": "outcome-1; outcome-2",
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        },
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@too-much": {
+      "view-if": {
+        ">": {
+          "parents": 4
+        }
+      },
+      "@double-dog": "Let them disagree. You've got a speech about discipline and duty all ready."
+    },
+    "@double-dog": {
+      "on-arrival": {
+        "-=": {
+          "parents": 3
+        }
+      }
+    }
+  },
+  {
+    "title": "Snow Shoveling",
+    "subtitle": "Cleaning up the walkway.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "month": 9,
+        "age": 7
+      },
+      "<": {
+        "month": 17
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "chores",
+    "Snow Shoveling": {
+      "@aniuk": "ANIUK, clean snow for drinking.",
+      "@aqil": "AQILLUQQAAQ, deep heavy snow.",
+      "@freezing": "KAVISILAQ, snow hardened by rain.",
+      "@mingullaut": "MINGULLAUT, thin powder snow that blows in through cracks and veils the floor.",
+      "@eskimos": "These words will not be in the Bee."
+    },
+    "@aqil": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@eskimos": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    },
+    "@aniuk": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@freezing": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "choose-if": {
+        ">": {
+          "age": 9
+        }
+      },
+      "unavailable-subtitle": "You are too young to have to scrape the windshields"
+    },
+    "@mingullaut": {
+      "choose-if": {
+        ">": {
+          "lettice": 2
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      },
+      "unavailable-subtitle": "That would make a mess for Lettice"
+    }
+  },
+  {
+    "title": "Was It This Way For the Desert Fathers?",
+    "subtitle": "The private mystery of letters.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "world": 4,
+        "spelling-relief": 3,
+        "spelling": 4
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "priority": "2",
+    "tags": "menace",
+    "Was It This Way For the Desert Fathers?": {
+      "@sound": "how solid the sounds are",
+      "@mankind": "how they are the dust of lost peoples",
+      "@no-one": "no one else would have these thoughts"
+    },
+    "@sound": {
+      "on-arrival": {
+        "-=": {
+          "world": 2
+        }
+      }
+    },
+    "@mankind": {
+      "on-arrival": {
+        "-=": {
+          "world": 2
+        }
+      }
+    },
+    "@no-one": {
+      "on-arrival": {
+        "-=": {
+          "world": 2
+        }
+      }
+    }
+  },
+  {
+    "min-choices": "3",
+    "max-choices": "3",
+    "new-page": "true"
+  },
+  {
+    "title": "Clipping Coupons",
+    "subtitle": "Another common chore.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "tags": "chores",
+    "frequency": "400",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "Clipping Coupons": {
+      "@next": "Snip!",
+      "@make-offer": "Offer Lettice the mailers, as promised, for collage-making."
+    },
+    "@next": {
+      "go-to": "scissor-check; while-at-store"
+    },
+    "@while-at-store": {
+      "@not-much": "This is your little contribution to the family finances.",
+      "@dull-work": "Heaven forbid you not have enough chores."
+    },
+    "@not-much": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    },
+    "@dull-work": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@scissor-check": {
+      "@destination-one": "This is a compelling argument. It demands experiment.",
+      "@destination-two": "Lettice is a nitwit.",
+      "@destination-three": "Lettice is trying to get you in trouble."
+    },
+    "@destination-one": {
+      "view-if": {
+        "<": {
+          "age": 9
+        }
+      }
+    },
+    "@destination-two": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@destination-three": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      },
+      "view-if": {
+        ">": {
+          "age": 9
+        }
+      }
+    },
+    "@make-offer": {
+      "view-if": {
+        "=": {
+          "coupons-offered": 1
+        }
+      },
+      "on-arrival": {
+        "-=": {
+          "lettice": 1
+        },
+        "+=": {
+          "coupons-offered": 1
+        }
+      },
+      "@ask-to-see": "Ask to see what she's doing.",
+      "@ignore": "Just ignore her and let her get on with it."
+    },
+    "@ask-to-see": {
+      "@ignore": "Fine, you can wait."
+    }
+  },
+  {
+    "title": "Church",
+    "subtitle": "Where you spend most of the time when you're not at home.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 4
+      },
+      "<": {
+        "age": 8
+      },
+      "=": {
+        "church-introduced": 0
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "age": 1
+      },
+      "=": {
+        "church-introduced": 1
+      }
+    },
+    "tags": "plot",
+    "Church": {
+      "@liturgy": "Your favorite thing is the flowers and stained glass.",
+      "@on-the-other": "What's more, it's very familiar.",
+      "@still": "Still, sometimes services get very boring.",
+      "@people-diverse": "The parishioners are very diverse, though."
+    },
+    "@still": {
+      "@yes-very": "The services and the sermons don't change very much.",
+      "@read-signs": "But you're not fool enough to say yes to Father after a line like that.",
+      "@what-idiom": "Where did \"old hat\" come from, anyway?"
+    },
+    "@yes-very": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@read-signs": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@on-the-other": {
+      "@too-bad": "Some people don't know when to use the kneeler and when to stand."
+    },
+    "@too-bad": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@liturgy": {
+      "@must-be": "It must be very expensive to keep all of that going.",
+      "@good-against": "But it's a sign to the secular world."
+    },
+    "@what-idiom": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    },
+    "@people-diverse": {
+      "@ask-mother": "Ask Mother her opinion about this.",
+      "@ask-father": "Ask Father his opinion.",
+      "@ask-mrs-p": "Ask Mrs. Perry about the girl with the triple-pierced ears."
+    },
+    "@ask-mother": {
+      "on-arrival": {
+        "-=": {
+          "status": 1
+        }
+      }
+    },
+    "@ask-mrs-p": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      },
+      "view-if": {
+        ">": {
+          "status": 0
+        }
+      }
+    },
+    "@must-be": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    },
+    "@good-against": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "French Art Words",
+    "subtitle": "With lots of overlap with the Latin derivatives lists.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 1
+      },
+      "<": {
+        "month": 24,
+        "art-words": 2
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "spelling": 2
+      }
+    },
+    "tags": "drill",
+    "frequency": "400",
+    "French Art Words": {
+      "@art": "GOUACHE, COLLAGE, GRISAILLE",
+      "@art-2": "SURREALISM, FAUVISM, CUBISM"
+    },
+    "@art": {
+      "on-arrival": {
+        "=": {
+          "art-words": 1
+        }
+      },
+      "view-if": {
+        "=": {
+          "art-words": 0
+        }
+      },
+      "@knew-before": "Of course, you've run into collages before, in Sunday school.",
+      "@tell-lettice": "Tell Lettice about the concept of collage.",
+      "@tell-lettice-2": "Tell Lettice about the concept of gouache.",
+      "@tell-lettice-3": "Tell Lettice about the concept of grisaille."
+    },
+    "@tell-lettice": {
+      "on-arrival": {
+        "=": {
+          "collage-ready": 1
+        }
+      },
+      "view-if": {
+        "<": {
+          "lettice": 2,
+          "age": 9
+        }
+      },
+      "@rub-in": "Give Lettice some big-sisterly advice.",
+      "@offer-coupons": "Offer to let her cut up some of the discarded coupon flyers the next time you clip coupons."
+    },
+    "@rub-in": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@offer-coupons": {
+      "on-arrival": {
+        "+=": {
+          "coupons-offered": 1
+        }
+      }
+    },
+    "@art-2": {
+      "on-arrival": {
+        "=": {
+          "art-words": 2
+        }
+      },
+      "view-if": {
+        "=": {
+          "art-words": 1
+        }
+      },
+      "@wikipedia": "Check them out on wikipedia instead.",
+      "@dont-let": "Don't let yourself get distracted from the task at hand."
+    },
+    "@dont-let": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      }
+    },
+    "@tell-lettice-3": {
+      "view-if": {
+        "<": {
+          "lettice": 2
+        },
+        ">": {
+          "age": 9
+        }
+      },
+      "on-arrival": {
+        "-=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@tell-lettice-2": {
+      "view-if": {
+        "<": {
+          "lettice": 2
+        },
+        "=": {
+          "age": 9
+        }
+      },
+      "on-arrival": {
+        "-=": {
+          "lettice": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Halloween",
+    "subtitle": "Celebrating Halloween in your household.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "month": 8
+      },
+      ">": {
+        "age": 0
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "seasonal",
+    "priority": "2",
+    "Halloween": {
+      "@pumpkins": "Gourd, squash, vine.",
+      "@cookies": "Baked treats.",
+      "@cookies-2": "Baked treats.",
+      "@cookies-3": "Baked treats.",
+      "@candy": "Candy for the trick-or-treaters."
+    },
+    "@cookies": {
+      "view-if": {
+        "<": {
+          "age": 9
+        }
+      }
+    },
+    "@cookies-2": {
+      "view-if": {
+        ">": {
+          "age": 8
+        },
+        "<": {
+          "age": 11
+        }
+      }
+    },
+    "@cookies-3": {
+      "view-if": {
+        ">": {
+          "age": 10
+        }
+      }
+    }
+  },
+  {
+    "title": "That Other Question",
+    "subtitle": "A standard conversation.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "menace",
+    "frequency": "100",
+    "That Other Question": {
+      "@see-what": "Wait.",
+      "@see-what-2": "Wait."
+    },
+    "@see-what": {
+      "view-if": {
+        ">": {
+          "parents": 4
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@see-what-2": {
+      "go-to": "explaining; lying"
+    },
+    "@explaining": {
+      "view-if": {
+        "<": {
+          "parents": 5
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      },
+      "@what-if": "What if the kid were being bullied?",
+      "@what-if-autistic": "Or autistic, and the school wasn't well equipped to handle that?",
+      "@also-opposed": "Are you also opposed to private schooling?"
+    },
+    "@what-if": {
+      "go-to": "giving-up"
+    },
+    "@what-if-autistic": {
+      "go-to": "giving-up"
+    },
+    "@giving-up": {
+      "@own-kids": "Let Mother answer.",
+      "@world-help": "Let Mother answer."
+    },
+    "@own-kids": {
+      "view-if": {
+        ">": {
+          "poverty": 2
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    },
+    "@world-help": {
+      "view-if": {
+        "<": {
+          "poverty": 3
+        }
+      }
+    }
+  },
+  {
+    "title": "Arabic Loan Words",
+    "subtitle": "Dominated by the letters AL-",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 2
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "spelling": 2
+      }
+    },
+    "tags": "drill",
+    "Arabic Loan Words": {
+      "@alchemy": "ALCOHOL, ELIXIR, ALEMBIC.",
+      "@cosmetics": "ATTAR, JASMINE, AMBERGRIS.",
+      "@materials": "CARMINE, DAMASK, LAZURITE.",
+      "@gerbil": "GERBIL, JERBOA, GUNDI and JIRD.",
+      "@storms": "MONSOON, TYPHOON, HABOOB."
+    },
+    "@cosmetics": {
+      "on-arrival": {
+        "+=": {
+          "cosmetics-studied": 1
+        }
+      },
+      "view-if": {
+        "=": {
+          "cosmetics-studied": 0
+        }
+      },
+      "@sign": "It's enough to put anyone off worldly cosmetics.",
+      "@neat-if": "Perfuming sounds like a very interesting occupation.",
+      "@share-news": "Jerome would appreciate this information.",
+      "@maybe-sara": "Maybe Sara will have more thoughts about whether this is good or bad."
+    },
+    "@materials": {
+      "on-arrival": {
+        "=": {
+          "materials-studied": 1
+        }
+      },
+      "view-if": {
+        "=": {
+          "materials-studied": 0
+        }
+      },
+      "@ask-mother": "Ask mother about that.",
+      "@or-jerome": "Or Jerome.",
+      "@not-that": "Not that your family would have any such thing."
+    },
+    "@not-that": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    },
+    "@or-jerome": {
+      "view-if": {
+        ">": {
+          "jerome": 3
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "jerome": 1
+        }
+      }
+    },
+    "@ask-mother": {
+      "view-if": {
+        "<=": {
+          "parents": 3
+        }
+      },
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@gerbil": {
+      "view-if": {
+        "=": {
+          "gerbil-studied": 0
+        }
+      },
+      "on-arrival": {
+        "=": {
+          "gerbil-studied": 1
+        }
+      },
+      "@lettice-like": "Lettice will like those.",
+      "@wish-pet": "Occasionally you wish for a pet, but there's no money."
+    },
+    "@wish-pet": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      },
+      "@note-that": "Note that she and Father chose to have children.",
+      "@say-nothing": "She's probably right."
+    },
+    "@note-that": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "@apologize": "Apologize later.",
+      "@let-go": "Let it go."
+    },
+    "@lettice-like": {
+      "view-if": {
+        "<=": {
+          "lettice": 3
+        }
+      },
+      "on-arrival": {
+        "-=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@share-news": {
+      "view-if": {
+        ">=": {
+          "jerome": 3
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "jerome": 1
+        }
+      }
+    },
+    "@sign": {
+      "on-arrival": {
+        "-=": {
+          "world": 1
+        }
+      },
+      "@try-on-perry": "Mention this theory to Mrs. Perry.",
+      "@try-on-sara": "Mention this theory to Sara."
+    },
+    "@maybe-sara": {
+      "view-if": {
+        ">": {
+          "sara": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "sara": 1
+        }
+      },
+      "@seems-impure": "It just seems... ickier."
+    },
+    "@try-on-perry": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@try-on-sara": {
+      "view-if": {
+        ">=": {
+          "sara": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "sara": 1
+        }
+      },
+      "@no": "No.",
+      "@maybe": "Maybe."
+    },
+    "@no": {
+      "on-arrival": {
+        "-=": {
+          "world": 1
+        }
+      }
+    },
+    "@maybe": {
+      "on-arrival": {
+        "+=": {
+          "world": 2
+        }
+      }
+    },
+    "@neat-if": {
+      "view-if": {
+        ">": {
+          "world": 2
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Advent",
+    "subtitle": "The beginning of Advent.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "month": 11
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "seasonal",
+    "Advent": {
+      "@rearrange": "Set out the Nativity pieces.",
+      "@open": "Open a door of the Advent calendar."
+    }
+  },
+  {
+    "title": "Minding Lettice",
+    "subtitle": "Someone has to watch her when your parents go out.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "lettice": 4
+      },
+      "<": {
+        "lettice": 20,
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "menace",
+    "Minding Lettice": {
+      "@cajole": "Cajole her into working.",
+      "@bargain": "Bargain with her.",
+      "@moral": "Argue that your authority is derived from your parents.",
+      "@threaten": "Threaten her.",
+      "@punish": "Threaten her and carry out the punishment yourself."
+    },
+    "@cajole": {
+      "choose-if": {
+        "<": {
+          "lettice": 6
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@bargain": {
+      "choose-if": {
+        "<": {
+          "lettice": 7
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@moral": {
+      "choose-if": {
+        "<": {
+          "parents": 3
+        }
+      },
+      "unavailable-subtitle": "Lettice would spot the hypocrisy there for sure.",
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      },
+      "@parent-duty": "And duty to one's parents comes from God.",
+      "@give-up": "Though it's not always easy to believe them when they say that."
+    },
+    "@parent-duty": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@give-up": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@threaten": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 3,
+          "threats-useless": 1
+        }
+      },
+      "choose-if": {
+        "<": {
+          "threats-useless": 1
+        }
+      },
+      "unavailable-subtitle": "Threats don't work if you don't carry them out yourself."
+    },
+    "@punish": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 2
+        }
+      },
+      "view-if": {
+        ">": {
+          "lettice": 6
+        }
+      }
+    }
+  },
+  {
+    "title": "Worldly Cinema",
+    "subtitle": "Comparing movie notes with Jerome.",
+    "new-page": "yes",
+    "tags": "top",
+    "view-if": {
+      ">": {
+        "age": 8,
+        "world": 0,
+        "jerome": 0
+      },
+      "<": {
+        "month": 24,
+        "jerome": 3
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "Worldly Cinema": {
+      "@korea": "The one about North Korea.",
+      "@vegetables": "The one with the talking vegetables.",
+      "@bambi": "Bambi."
+    },
+    "@korea": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@vegetables": {
+      "@bioluminescent": "Boys who say \"bioluminescent\" are automatically cuter.",
+      "@show-off": "Or else showing off."
+    },
+    "@bioluminescent": {
+      "on-arrival": {
+        "+=": {
+          "jerome": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Lent",
+    "subtitle": "You and the family practice Lenten disciplines.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "month": 16,
+        "age": 7
+      },
+      "<": {
+        "month": 20
+      }
+    },
+    "priority": "2",
+    "tags": "seasonal",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "Lent": {
+      "@silence-discipline": "The discipline of silence.",
+      "@wednesday": "The discipline of Wednesday night Bible study.",
+      "@wednesday-two": "Try Bible study a second time.",
+      "@moderation-food": "The discipline of moderation in food.",
+      "@friday-fasting": "The discipline of fasting on Fridays."
+    },
+    "@friday-fasting": {
+      "choose-if": {
+        ">": {
+          "age": 9
+        }
+      },
+      "unavailable-subtitle": "You're too young to fast."
+    },
+    "@wednesday": {
+      "on-arrival": {
+        "+=": {
+          "wednesday-done": 1
+        }
+      },
+      "view-if": {
+        "=": {
+          "wednesday-done": 0
+        }
+      }
+    },
+    "@silence-discipline": {
+      "view-if": {
+        "=": {
+          "lettice-monster": 0
+        }
+      },
+      "on-arrival": {
+        "=": {
+          "lettice-monster": 1
+        }
+      }
+    },
+    "@wednesday-two": {
+      "on-arrival": {
+        "+=": {
+          "wednesday-done": 1
+        }
+      },
+      "view-if": {
+        "=": {
+          "wednesday-done": 1
+        }
+      },
+      "@literacy": "Ask if he means Abraham Lincoln was illiterate at a young age.",
+      "@no-notes": "Do your summary without notes too. As a point."
+    },
+    "@literacy": {
+      "@doubt": "Privately doubt the accuracy of this anecdote.",
+      "@ask": "Ask how that could be possible."
+    },
+    "@doubt": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@no-notes": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "@refuse": "Erm, best if Father doesn't see; you weren't entirely respectful.",
+      "@show": "It's blank, so why not?"
+    },
+    "@refuse": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "choose-if": {
+        ">": {
+          "parents": 2
+        }
+      }
+    }
+  },
+  {
+    "title": "Proofreading",
+    "subtitle": "Proof work on Father's newsletter.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "newslettering": 0,
+        "pedagogue": 0
+      },
+      "<": {
+        "newslettering": 4,
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "newslettering": 1,
+        "month": 1
+      }
+    },
+    "tags": "chores",
+    "Proofreading": {
+      "@perhaps": "Suggest going to a blog format.",
+      "@workload": "Just go over the proofs as requested."
+    },
+    "@perhaps": {
+      "go-to": "workload",
+      "on-arrival": {
+        "+=": {
+          "format-change": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Dinner Service",
+    "subtitle": "Taking over cooking while Mother is out of town.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "=": {
+        "dinner": 0
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      },
+      "=": {
+        "dinner": 1
+      }
+    },
+    "tags": "chores",
+    "Dinner Service": {
+      "@pasta": "Improvise something with spaghetti."
+    },
+    "@pasta": {
+      "@call-dad": "Call for Father.",
+      "@run-water": "Pour hot water over the noodles to clean them, put them back in the pot, and say nothing."
+    },
+    "@run-water": {
+      "@that-was": "That was close."
+    },
+    "@that-was": {
+      "@reason": "Reason with her.",
+      "@threaten": "Offer to tell Father about the time she buried the dead bird and then didn't wash her hands."
+    },
+    "@threaten": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@reason": {
+      "choose-if": {
+        "<": {
+          "lettice": 3
+        }
+      },
+      "unavailable-subtitle": "As if Lettice can be reasoned with."
+    },
+    "@call-dad": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      },
+      "@apologize": "Apologize for wasting food.",
+      "@let-go": "Just let it go."
+    },
+    "@apologize": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Heard Rather Than Seen",
+    "subtitle": "The shadow of uncertainty.",
+    "new-page": "yes",
+    "view-if": {
+      "<": {
+        "month": 24
+      },
+      ">": {
+        "barrons": 2
+      },
+      "=": {
+        "barron-crisis": 1
+      }
+    },
+    "priority": "1",
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "barron-crisis": 1
+      }
+    },
+    "tags": "menace",
+    "go-to": "william-intro if william = 0; william-continued if william > 0",
+    "@william-intro": {
+      "go-to": "william-continued",
+      "on-arrival": {
+        "+=": {
+          "william": 1
+        }
+      }
+    },
+    "@william-continued": {
+      "on-arrival": {
+        "+=": {
+          "barrons": 1
+        }
+      },
+      "@try-hearing": "Try to overhear."
+    },
+    "@try-hearing": {
+      "@lord-never": "The LORD never gives us more than we can bear.",
+      "@healing-service": "Mrs. Barron should go to a healing service and be cured of her problems."
+    },
+    "@healing-service": {
+      "go-to": "lord-never"
+    },
+    "@lord-never": {
+      "@mrs-perry": "Mrs. Perry might say she had a demon in her.",
+      "@not-duty": "It sounds like Father would say she didn't do her duty."
+    },
+    "@mrs-perry": {
+      "view-if": {
+        ">": {
+          "perry": 0
+        }
+      },
+      "go-to": "continuation"
+    },
+    "@not-duty": {
+      "go-to": "continuation"
+    },
+    "@continuation": {
+      "@shocking": "Sending them back to school? Things must be very bad.",
+      "@cannot-afford": "Your parents could not at all afford to send you and Lettice to private school."
+    },
+    "@cannot-afford": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      },
+      "go-to": "continuation-2"
+    },
+    "@shocking": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      },
+      "go-to": "continuation-2"
+    },
+    "@continuation-2": {
+      "@surely-not": "Surely Mrs Barron would not do anything really dangerous.",
+      "@mortal-sin": "It is a very serious sin to do harm to yourself.",
+      "@how-bad": "How bad could it possibly be?"
+    },
+    "@surely-not": {
+      "go-to": "advising"
+    },
+    "@mortal-sin": {
+      "go-to": "advising"
+    },
+    "@how-bad": {
+      "go-to": "advising"
+    }
+  },
+  {
+    "title": "Year-end Competition",
+    "subtitle": "A first competition with others your own age.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "month": 24,
+        "age": 8
+      }
+    },
+    "priority": "3",
+    "tags": "competition",
+    "on-arrival": {
+      "=": {
+        "month": 1
+      },
+      "+=": {
+        "age": 1
+      }
+    },
+    "Year-end Competition": {
+      "@fructiferrous": "FRUCTIFERROUS",
+      "@fructiferous": "FRUCTIFEROUS",
+      "@frooctiferus": "FROOCTIFERUS",
+      "@fruktiferrus": "FRUKTIFERRUS"
+    },
+    "@fruktiferrus": {
+      "choose-if": {
+        "<": {
+          "spelling": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "parents": 1,
+          "status": 1,
+          "lettice": 1
+        }
+      },
+      "unavailable-subtitle": "You've too much spelling knowledge to get that wrong. Latin wouldn't use a K that way."
+    },
+    "@frooctiferus": {
+      "choose-if": {
+        "<": {
+          "spelling": 2
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "parents": 1,
+          "status": 1
+        }
+      },
+      "unavailable-subtitle": "Double Os would be surprising in a Latinate word like this."
+    },
+    "@fructiferrous": {
+      "choose-if": {
+        "<": {
+          "spelling": 3
+        }
+      },
+      "unavailable-subtitle": "If it means fruit-bearing"
+    },
+    "@fructiferous": {
+      "go-to": "origin"
+    },
+    "@origin": {
+      "@cacophony": "CACOPHONY.",
+      "@kakophony": "KAKOPHONY.",
+      "@cakofunny": "CAKOFUNNY.",
+      "@cacoughanie": "CACOUGHANIE.",
+      "@ask-for": "Ask for the origin of the word."
+    },
+    "@ask-for": {
+      "go-to": "origin",
+      "on-arrival": {
+        "+=": {
+          "isgreek": 1
+        }
+      }
+    },
+    "@cakofunny": {
+      "on-arrival": {
+        "+=": {
+          "parents": 2
+        }
+      },
+      "choose-if": {
+        "<": {
+          "spelling": 5
+        }
+      },
+      "unavailable-subtitle": "That doesn't really look right"
+    },
+    "@kakophony": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "choose-if": {
+        "<": {
+          "spelling": 7
+        }
+      },
+      "unavailable-subtitle": "In a Greek word"
+    },
+    "@cacoughanie": {
+      "choose-if": {
+        "=": {
+          "isgreek": 0,
+          "greekletters": 0
+        }
+      },
+      "unavailable-subtitle": "Greek wouldn't produce that -gh- as an f sound.",
+      "on-arrival": {
+        "+=": {
+          "parents": 1,
+          "status": 1
+        }
+      }
+    },
+    "@cacophony": {
+      "on-arrival": {
+        "=": {
+          "highest-win": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Spelling Practice",
+    "subtitle": "Getting started on words for the new year.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "spelling": 2,
+        "age": 9,
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "spelling": 1,
+        "month": 1
+      }
+    },
+    "tags": "drill",
+    "Spelling Practice": {
+      "@lectern": "LECTERN.",
+      "@minestrone": "MINESTRONE.",
+      "@photosynthesis": "PHOTOSYNTHESIS.",
+      "@any": "Any of the above. You can spend all night pruning this list."
+    },
+    "@any": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        },
+        "-=": {
+          "motivation": 1
+        }
+      },
+      "choose-if": {
+        ">": {
+          "motivation": 0
+        }
+      },
+      "unavailable-subtitle": "You don't have the motivation for that effort."
+    },
+    "@minestrone": {
+      "view-if": {
+        "<": {
+          "minestrone": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "minestrone": 1
+        }
+      }
+    },
+    "@lectern": {
+      "view-if": {
+        "<": {
+          "lectern": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "lectern": 1
+        }
+      }
+    },
+    "@photosynthesis": {
+      "view-if": {
+        "<": {
+          "photosynthesis": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "photosynthesis": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "A Call to Arms",
+    "subtitle": "Taking action with the legislature.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "status": 1
+      },
+      "<": {
+        "status": 4,
+        "month": 24
+      }
+    },
+    "frequency": "100",
+    "tags": "menace",
+    "on-arrival": {
+      "+=": {
+        "perry": 1
+      }
+    },
+    "A Call to Arms": {
+      "@who-is": "What can that be?",
+      "@aha": "Ah. Again."
+    },
+    "@who-is": {
+      "go-to": "summary",
+      "view-if": {
+        "<": {
+          "perry": 3
+        }
+      }
+    },
+    "@aha": {
+      "go-to": "summary",
+      "view-if": {
+        ">": {
+          "perry": 2
+        }
+      }
+    },
+    "@summary": {
+      "@what-about-1": "The curriculum would pose an extra cost on home-schooling students.",
+      "@what-about-2": "It's not the job of the state legislature to specify particular curriculum materials.",
+      "@what-about-3": "Home-schooling students don't suffer so much from bullying.",
+      "@what-about-4": "And anyway, attitudinal education is repulsive and un-free.",
+      "@complain": "On the other hand, Lettice is like a little bully."
+    },
+    "@complain": {
+      "view-if": {
+        ">": {
+          "lettice": 3
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@what-about-1": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      },
+      "go-to": "smug; assignment"
+    },
+    "@what-about-2": {
+      "go-to": "what-about-1"
+    },
+    "@what-about-3": {
+      "go-to": "what-about-1"
+    },
+    "@what-about-4": {
+      "go-to": "what-about-1"
+    }
+  },
+  {
+    "title": "Easter",
+    "subtitle": "Vigil service.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "month": 20
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "seasonal",
+    "Easter": {
+      "@onward": "Be as still as possible.",
+      "@spelling-practice": "Drill yourself on spelling to keep focused.",
+      "@origami": "Make your service leaflet into a paper crane.",
+      "@pyromania": "Indulge your pyromania to the fullest."
+    },
+    "@pyromania": {
+      "view-if": {
+        ">": {
+          "age": 9
+        }
+      }
+    },
+    "@origami": {
+      "view-if": {
+        ">": {
+          "age": 10
+        }
+      }
+    },
+    "@spelling-practice": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      }
+    },
+    "@onward": {
+      "go-to": "fire-confiscation; acolyte-envy; peaceful; flowers"
+    },
+    "@flowers": {
+      "@providence": "Father would say something about the providence of God.",
+      "@management": "Seems more like clever stage management."
+    },
+    "@providence": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@management": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@peaceful": {
+      "Then": "will we all wear Easter hats to heaven?"
+    },
+    "@acolyte-envy": {
+      "@nice-if": "It would be nice to have everyone at church respect you, if you were an acolyte.",
+      "@perhaps-wrong": "But it is wrong to think of service in terms of how it would make others look up to you."
+    },
+    "@nice-if": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@perhaps-wrong": {
+      "on-arrival": {
+        "-=": {
+          "status": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Daydream of Winning",
+    "subtitle": "Because sometimes a girl just has to stare out the window.",
+    "new-page": "yes",
+    "tags": "top",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "month": 23
+      }
+    },
+    "frequency": "500",
+    "Daydream of Winning": {
+      "@prize": "Think of the prizes and glory.",
+      "@mastery": "Think of the mastery of all those words.",
+      "@last-year": "This is the last year you're eligible."
+    },
+    "@last-year": {
+      "view-if": {
+        ">": {
+          "age": 11
+        }
+      },
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        }
+      }
+    },
+    "@mastery": {
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        },
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    },
+    "@prize": {
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        },
+        "+=": {
+          "world": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "How It Will End",
+    "subtitle": "The end is in the beginning.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "age": 0
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "=": {
+        "age": 5
+      }
+    },
+    "tags": "plot",
+    "How It Will End": {
+      "@win-unlikely": "Even with all that work, it's very, very unlikely that you'll win at Nationals.",
+      "@but-try": "But you can try. You can absolutely try."
+    }
+  },
+  {
+    "title": "Lessons for Lettice",
+    "subtitle": "Mother asks you to take on some new responsibilities in educating Lettice.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 9
+      },
+      "<": {
+        "lessons": 1,
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "lessons": 1
+      }
+    },
+    "tags": "plot",
+    "Lessons for Lettice": {
+      "on-arrival": {
+        "+=": {
+          "month": 1
+        }
+      },
+      "@destination-one": "Lettice is very ill-behaved.",
+      "@destination-two": "Lettice is kind of a monster, but your parents should be the ones dealing with her.",
+      "@destination-three": "Everything is fine. Mother has enough to worry about."
+    },
+    "@destination-one": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@destination-two": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1,
+          "parents": 1
+        }
+      }
+    },
+    "@destination-three": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        },
+        "+=": {
+          "poverty": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Handwashing",
+    "subtitle": "Hand-knitted things can't be washed in the machine.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "chores",
+    "frequency": "400",
+    "Handwashing": {
+      "@scrub": "About how even Cinderella got away.",
+      "@orphan": "About how you were switched at birth.",
+      "@sketch": "About becoming a designer and making more stylish clothes.",
+      "@servants": "About becoming so wealthy that you could have servants."
+    },
+    "@scrub": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@sketch": {
+      "choose-if": {
+        ">": {
+          "world": 0
+        }
+      },
+      "unavailable-subtitle": "Too worldly for you.",
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@servants": {
+      "view-if": {
+        ">": {
+          "world": 1
+        }
+      },
+      "choose-if": {
+        ">": {
+          "world": 2
+        }
+      },
+      "unavailable-subtitle": "People who have servants are definitely too worldly.",
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@orphan": {
+      "choose-if": {
+        ">": {
+          "parents": 0
+        }
+      },
+      "unavailable-subtitle": "A bit hard on your parents"
+    }
+  },
+  {
+    "title": "Ash Wednesday",
+    "subtitle": "Family attends services for the beginning of Lent.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "month": 16
+      },
+      ">": {
+        "age": 7
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "seasonal",
+    "Ash Wednesday": {
+      "@spelling-diligence": "Decide to be more diligent at spelling practice.",
+      "@nicer-lettice": "Be nicer to Lettice.",
+      "@lettice-face": "Be nicer to Lettice.",
+      "@tease-less": "Ask for fewer selfish purchases."
+    },
+    "@tease-less": {
+      "view-if": {
+        ">": {
+          "poverty": 2
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    },
+    "@spelling-diligence": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1,
+          "spelling-relief": 1
+        },
+        "=": {
+          "motivation": 2
+        }
+      }
+    },
+    "@nicer-lettice": {
+      "view-if": {
+        "<": {
+          "lettice": 3
+        }
+      },
+      "on-arrival": {
+        "-=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@lettice-face": {
+      "view-if": {
+        ">": {
+          "lettice": 2
+        }
+      }
+    }
+  },
+  {
+    "title": "Ironing",
+    "subtitle": "In which you help with the chores.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "tags": "chores",
+    "frequency": "400",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "Ironing": {
+      "@noticing": "Pay attention to what Mother is doing.",
+      "@make-pleats": "Give extra attention to the pleated skirt.",
+      "@martyred": "Work longer than necessary. Possibly burn yourself. No one notices anyway.",
+      "@spell-through": "Set up your spelling list so you can see it while you iron."
+    },
+    "@spell-through": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        },
+        "+=": {
+          "spelling-relief": 1,
+          "spelling": 1
+        }
+      }
+    },
+    "@make-pleats": {
+      "view-if": {
+        "<": {
+          "parents": 3
+        }
+      },
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@martyred": {
+      "view-if": {
+        ">": {
+          "parents": 2
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@noticing": {
+      "view-if": {
+        ">": {
+          "age": 8
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Isolation",
+    "subtitle": "Longing for the opening of the lid.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "world": 4,
+        "age": 7
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "priority": "2",
+    "tags": "menace",
+    "Isolation": {
+      "@everyone": "Everyone has odd half-asleep thoughts. It's nothing.",
+      "@nationals": "If you go to Nationals, you'll get to make a trip cross-country.",
+      "@text": "Text Jerome.",
+      "@text-2": "Text Jerome.",
+      "@romance": "You'd be less bored if you had a boyfriend."
+    },
+    "@text": {
+      "view-if": {
+        ">": {
+          "jerome": 2,
+          "child-led": 0
+        },
+        "=": {
+          "jerome-texted": 0
+        }
+      },
+      "choose-if": {
+        ">": {
+          "jerome": 4
+        }
+      },
+      "unavailable-subtitle": "Hm. Too weird?",
+      "on-arrival": {
+        "-=": {
+          "world": 2
+        },
+        "+=": {
+          "jerome": 1
+        },
+        "=": {
+          "jerome-texted": 1
+        }
+      },
+      "You": "Bored. Very very bored.",
+      "Jerome": "do not ask me what I think it looks liek"
+    },
+    "@text-2": {
+      "view-if": {
+        ">": {
+          "jerome": 2,
+          "child-led": 0
+        },
+        "=": {
+          "jerome-texted": 1
+        }
+      },
+      "choose-if": {
+        ">": {
+          "jerome": 4
+        }
+      },
+      "unavailable-subtitle": "Hm. Too weird?",
+      "on-arrival": {
+        "-=": {
+          "world": 2
+        },
+        "+=": {
+          "jerome": 1
+        },
+        "=": {
+          "jerome-texted": 2
+        }
+      },
+      "You": "My parents don't really encourage that kind of thing.",
+      "Jerome": "time for breakfast ttyl"
+    },
+    "@romance": {
+      "view-if": {
+        ">": {
+          "age": 10
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "world": 2
+        }
+      }
+    },
+    "@everyone": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@nationals": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        },
+        "-=": {
+          "world": 1
+        },
+        "=": {
+          "motivation": 2
+        }
+      }
+    }
+  },
+  {
+    "title": "At the Copy Shop",
+    "subtitle": "Father's newsletter runs into certain inconveniences.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "newslettering": 0
+      },
+      "<": {
+        "newslettering": 3,
+        "month": 24
+      },
+      "=": {
+        "copy-error": 0
+      }
+    },
+    "tags": "plot",
+    "on-arrival": {
+      "+=": {
+        "newslettering": 1,
+        "month": 1
+      },
+      "=": {
+        "copy-error": 1
+      }
+    },
+    "At the Copy Shop": {
+      "@status-fear": "If you send it out unfixed, people won't buy more advertisements in the future.",
+      "@free-run": "Maybe if it's the copy shop's fault, they'll do a new run for free."
+    },
+    "@status-fear": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@free-run": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Mrs. Perry Gossips",
+    "subtitle": "Conversation in the Co-op Library",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 0,
+        "barrons": 0,
+        "status": 0
+      },
+      "<": {
+        "month": 24,
+        "barron-crisis": 1
+      }
+    },
+    "tags": "plot",
+    "on-arrival": {
+      "+=": {
+        "barron-crisis": 1
+      }
+    },
+    "Mrs. Perry Gossips": {
+      "@keep-listening": "Wait out the silence."
+    },
+    "@keep-listening": {
+      "@warn-lettice": "Warn Lettice not to check out Cups and Balls, as Mrs. Perry might not approve.",
+      "@ignore-perry": "Then again, who cares what she thinks?"
+    },
+    "@warn-lettice": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@ignore-perry": {
+      "on-arrival": {
+        "-=": {
+          "status": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Mr. Barron Intervenes",
+    "subtitle": "A friend of your parents tries to intervene.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "parents": 4,
+        "barrons": 0
+      },
+      "<": {
+        "month": 24
+      },
+      "=": {
+        "william-intervention": 0
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      },
+      "=": {
+        "william-intervention": 1
+      }
+    },
+    "tags": "menace",
+    "go-to": "william-intro if william = 0; william-continued if william > 0",
+    "@william-intro": {
+      "go-to": "william-continued",
+      "on-arrival": {
+        "=": {
+          "william": 1
+        }
+      }
+    },
+    "@william-continued": {
+      "@do-you-look": "Do you *look* pitiful from the outside? What's making him ask?",
+      "@its-not-as-though": "It's not as though that would help.",
+      "@say-yes": "Say yes. It might not help, but it shouldn't make things worse."
+    },
+    "@say-yes": {
+      "@lovely": "Lovely to know that the newsletter is the top concern.",
+      "@apologize": "Apologize. Don't mean it."
+    },
+    "@apologize": {
+      "on-arrival": {
+        "+=": {
+          "parents": 2
+        }
+      }
+    },
+    "@lovely": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1,
+          "status": 1
+        }
+      }
+    },
+    "@its-not-as-though": {
+      "go-to": "do-you-look"
+    }
+  },
+  {
+    "title": "Discipline",
+    "subtitle": "Questions of \"discipline.\"",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "parents": 6,
+        "age": 7
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "tags": "menace",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "Discipline": {
+      "@maybe": "Maybe ordering his shirts is Father's way of coping with more uncontrollable things.",
+      "@perhaps": "Perhaps this creates a feeling of shirt solidarity.",
+      "@occasionally": "Occasionally you hang shirts backward on purpose.",
+      "@but-mostly": "But mostly you hang them the right way and grumble to yourself."
+    },
+    "@but-mostly": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@maybe": {
+      "view-if": {
+        ">": {
+          "age": 10
+        }
+      },
+      "@promise": "Promise to do better and get back to work.",
+      "@in-this": "Well, sometimes. But mostly you prefer to put that energy into your spelling."
+    },
+    "@in-this": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@promise": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1,
+          "spelling-relief": 1
+        },
+        "-=": {
+          "parents": 2
+        }
+      }
+    },
+    "@occasionally": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "@point": "Point out the annoyance value of following arbitrary instructions.",
+      "@mention": "Mention that shirt-sorting cuts into your spelling practice time."
+    },
+    "@perhaps": {
+      "view-if": {
+        ">": {
+          "age": 9
+        }
+      },
+      "@point": "Point out the annoyance value of following arbitrary instructions.",
+      "@mention": "Mention that shirt-sorting cuts into your spelling practice time."
+    },
+    "@mention": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        },
+        "=": {
+          "motivation": 2
+        }
+      }
+    }
+  },
+  {
+    "title": "Reflections",
+    "subtitle": "Going home with the new haircut.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "barrons": 0
+      },
+      "=": {
+        "hairdresser": 2
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "hairdresser": 1,
+        "month": 1
+      }
+    },
+    "tags": "plot",
+    "Reflections": {
+      "@no-wonder": "No wonder Mrs. Barron was not in a hurry."
+    },
+    "@no-wonder": {
+      "@wait-for": "Wait for the lecture on the Things of the World.",
+      "@then-again": "Then again, he might just make some kind of cutting joke."
+    },
+    "@then-again": {
+      "go-to": "wait-for"
+    },
+    "@wait-for": {
+      "@gotaway": "Seems that you've gotten away with your new haircut.",
+      "@perryhat": "...Perhaps it's not as stylish as you hoped, if Father doesn't mind it."
+    },
+    "@gotaway": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        },
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@perryhat": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1,
+          "world": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Greek Root Studies",
+    "subtitle": "Studying your Greek roots.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 1
+      },
+      "<": {
+        "month": 24
+      },
+      "=": {
+        "greekletters": 0
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "spelling": 1
+      }
+    },
+    "tags": "drill",
+    "frequency": "500",
+    "Greek Root Studies": {
+      "@body-parts": "CERAT-, DERM-.",
+      "@rhi": "RHIG-, RHIN-, RHIZ-.",
+      "@what-curious": "What curious lettering they used."
+    },
+    "@rhi": {
+      "view-if": {
+        ">": {
+          "age": 8
+        }
+      }
+    },
+    "@what-curious": {
+      "view-if": {
+        "=": {
+          "greekletters": 0
+        }
+      },
+      "choose-if": {
+        ">": {
+          "motivation": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        },
+        "=": {
+          "greekletters": 1
+        },
+        "-=": {
+          "motivation": 1
+        }
+      },
+      "unavailable-subtitle": "You're not motivated enough to learn them."
+    }
+  },
+  {
+    "title": "Seeking Inspiration",
+    "subtitle": "Looking for something to recharge your will to spell.",
+    "new-page": "yes",
+    "tags": "top",
+    "view-if": {
+      "=": {
+        "motivation": 0
+      },
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "month": 23
+      }
+    },
+    "Seeking Inspiration": {
+      "@discuss": "Discuss the Bee with Mother.",
+      "@ask-lettice": "Ask Lettice for help."
+    },
+    "@ask-lettice": {
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        },
+        "-=": {
+          "lettice": 1
+        }
+      },
+      "choose-if": {
+        "<": {
+          "lettice": 4
+        }
+      },
+      "unavailable-subtitle": "You're not on good enough terms just now."
+    },
+    "@discuss": {
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        },
+        "-=": {
+          "parents": 1
+        },
+        "+=": {
+          "perry": 1
+        }
+      },
+      "choose-if": {
+        "<": {
+          "parents": 4
+        }
+      },
+      "unavailable-subtitle": "You're not on good enough terms just now."
+    }
+  },
+  {
+    "title": "At the Bookstore",
+    "subtitle": "A moment alone.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 9
+      },
+      "<": {
+        "age": 14,
+        "month": 24
+      },
+      "=": {
+        "bookstore": 0
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "world": 1,
+        "bookstore": 1
+      }
+    },
+    "tags": "plot",
+    "At the Bookstore": {
+      "@show-them": "Show them. Win your Bee and prove the value of your kind of upbringing.",
+      "@rude": "Then again maybe you are obvious...?",
+      "@listen": "Keep listening."
+    },
+    "@show-them": {
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        }
+      },
+      "go-to": "continuation"
+    },
+    "@rude": {
+      "go-to": "continuation",
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@listen": {
+      "@sounds-autistic": "There's a kid at Co-op like that."
+    },
+    "@sounds-autistic": {
+      "go-to": "continuation"
+    }
+  },
+  {
+    "title": "The Legend of Public School",
+    "subtitle": "Mother and Father share anecdotes about what public school used to be like.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "age": 10,
+        "month": 24
+      }
+    },
+    "tags": "menace",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "The Legend of Public School": {
+      "@onward": "Listen politely.",
+      "@bored": "Slip out of the room to do a little more reading."
+    },
+    "@bored": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "@anti-parent": "Do they never realize how much they repeat themselves?",
+      "@anti-lettice": "It won't kill Lettice to play audience for once."
+    },
+    "@anti-parent": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@anti-lettice": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@onward": {
+      "go-to": "bus-smell; pledge-of; cafeteria"
+    },
+    "@cafeteria": {
+      "@world-our-side": "The world isn't always on our side.",
+      "@other-kids": "Bet the other kids made fun of Father.",
+      "@whatever": "Having to drink chocolate milk is a pretty whiny thing to complain about."
+    },
+    "@whatever": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@world-our-side": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@other-kids": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@pledge-of": {
+      "@students-fair": "Sounds like Father might as well have misbehaved with everyone else.",
+      "@very-unfair": "That is completely unfair."
+    },
+    "@very-unfair": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@students-fair": {
+      "on-arrival": {
+        "+=": {
+          "world": 1,
+          "parents": 1
+        }
+      }
+    },
+    "@bus-smell": {
+      "@school-scary": "Public school is a place of fear and stale odors.",
+      "@status-of-fear": "Public school sounds like Mrs. Perry's Armageddon drills.",
+      "@show-better": "You'll show up public education by winning the Bee."
+    },
+    "@show-better": {
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        },
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@school-scary": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@status-of-fear": {
+      "on-arrival": {
+        "+=": {
+          "perry": 1
+        }
+      },
+      "@people-listen": "People listen more to Mrs. Perry than they do to Father."
+    },
+    "@people-listen": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "The House of Mildew",
+    "subtitle": "An introduction to another family.",
+    "new-page": "yes",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      },
+      "=": {
+        "jerome": 1
+      }
+    },
+    "view-if": {
+      "=": {
+        "jerome": 0
+      },
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "tags": "plot",
+    "The House of Mildew": {
+      "@previous-crushes": "All your previous crushes have had names that started with J."
+    },
+    "@previous-crushes": {
+      "@Jerome": "\"Jerome. J. E. R. O M E. Jerome.\""
+    },
+    "@Jerome": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      },
+      "@unattractive": "He is also not attractive."
+    },
+    "@unattractive": {
+      "@socks": "Flauberta. F L A U. B E R. T A. Example sentence: Flauberta is a disappointing flautist."
+    },
+    "@socks": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      },
+      "@probably": "Probably they think they are better at social studies than you.",
+      "@arent-cigars": "Aren't cigars for rich people?"
+    },
+    "@probably": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@arent-cigars": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "A Confrontation About Practice",
+    "subtitle": "Father has some questions for you.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "month": 20
+      },
+      "=": {
+        "warned": 0
+      },
+      "<": {
+        "month": 24,
+        "spelling": 11
+      }
+    },
+    "priority": "2",
+    "tags": "menace",
+    "on-arrival": {
+      "+=": {
+        "warned": 1
+      }
+    },
+    "A Confrontation About Practice": {
+      "@ask-what": "Pretend not to know what he means.",
+      "@admit-low": "Admit you've been low on motivation lately.",
+      "@ask-how": "Ask where embarrassment comes into it."
+    },
+    "@ask-how": {
+      "on-arrival": {
+        "+=": {
+          "status": 1,
+          "parents": 1
+        }
+      }
+    },
+    "@admit-low": {
+      "view-if": {
+        "=": {
+          "motivation": 0
+        }
+      },
+      "@recognize-point": "Try his method.",
+      "@ignore": "Smile and nod."
+    },
+    "@recognize-point": {
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        }
+      }
+    },
+    "@ask-what": {
+      "@promise-to": "Promise to do better.",
+      "@leave-alone": "Tell him to leave you alone."
+    },
+    "@leave-alone": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@promise-to": {
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        }
+      }
+    }
+  },
+  {
+    "title": "Aboriginal Loan Words",
+    "subtitle": "A short list but strange.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 1
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "spelling": 2
+      }
+    },
+    "frequency": "500",
+    "tags": "drill",
+    "Aboriginal Loan Words": {
+      "@bunyip": "BUNYIP",
+      "@pademelon": "PADEMELON"
+    },
+    "@bunyip": {
+      "@tell-lettice": "You should try telling Lettice about this. Freak her out.",
+      "@or-not": "Lettice might like to draw it."
+    },
+    "@pademelon": {
+      "@pouch-if": "It would be nice if people also came with pouches.",
+      "@or-creepy": "Or just creepy."
+    },
+    "@tell-lettice": {
+      "view-if": {
+        ">": {
+          "lettice": 3
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@or-not": {
+      "on-arrival": {
+        "-=": {
+          "lettice": 1
+        }
+      },
+      "view-if": {
+        "<": {
+          "lettice": 4
+        }
+      }
+    }
+  },
+  {
+    "title": "Mirrors",
+    "subtitle": "We go to the salon with Mrs. Barron.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "barrons": 0
+      },
+      "=": {
+        "hairdresser": 1
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "tags": "plot",
+    "Mirrors": {
+      "@suggest-returning": "Suggest returning home for your flashcards.",
+      "@ride-along": "Wait and hope for the best."
+    },
+    "@ride-along": {
+      "on-arrival": {
+        "+=": {
+          "perry": 1
+        }
+      },
+      "@on-to": "Fortunately the salon is just ahead."
+    },
+    "@suggest-returning": {
+      "@on-to": "Fortunately the salon is just ahead."
+    },
+    "@on-to": {
+      "@outcome": "You must be expected to take off your shirt before putting on the robe.",
+      "@but-that": "But that seems immodest.",
+      "@then-again": "Then again maybe the robe is like a hospital gown."
+    },
+    "@but-that": {
+      "go-to": "outcome"
+    },
+    "@then-again": {
+      "go-to": "outcome"
+    },
+    "@outcome": {
+      "@best": "That would be for the best."
+    },
+    "@best": {
+      "@worldly": "...worldly.",
+      "@not-family": "...like she could be from any family. Not necessarily yours."
+    },
+    "@worldly": {
+      "go-to": "salon-conclusion"
+    },
+    "@not-family": {
+      "go-to": "salon-conclusion"
+    },
+    "@salon-conclusion": {
+      "@go-ahead": "Tell Manie to go ahead.",
+      "@narrow-cut": "Ask her just to trim the ends, the way Mother does."
+    },
+    "@go-ahead": {
+      "on-arrival": {
+        "=": {
+          "hairdresser": 2
+        }
+      },
+      "@paying": "Wait for Mrs. Barron to be done and pay."
+    },
+    "@narrow-cut": {
+      "on-arrival": {
+        "=": {
+          "hairdresser": 45
+        }
+      },
+      "@paying": "Wait for Mrs. Barron to be done and pay."
+    }
+  },
+  {
+    "title": "Contributions to Father's Newsletter",
+    "subtitle": "You write puzzles and games.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "newslettering": 0,
+        "pedagogue": 0
+      },
+      "<": {
+        "newslettering": 4,
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "newslettering": 1,
+        "month": 1
+      }
+    },
+    "tags": "chores",
+    "Contributions to Father's Newsletter": {
+      "@stupid-cold": "Stupid cold fingers.",
+      "@heater": "If only Father believed more in using the heater.",
+      "@cold-again": "It's getting cold in the mornings again.",
+      "@at-least-warm": "At least it's reasonably warm in the mornings now."
+    },
+    "@cold-again": {
+      "view-if": {
+        ">": {
+          "month": 6
+        },
+        "<": {
+          "month": 11
+        }
+      },
+      "go-to": "stupid-cold-2"
+    },
+    "@at-least-warm": {
+      "view-if": {
+        "<": {
+          "month": 7
+        },
+        ">": {
+          "month": 20
+        }
+      },
+      "go-to": "cryptogram; logic; math; kenken"
+    },
+    "@heater": {
+      "go-to": "stupid-cold-2",
+      "view-if": {
+        ">": {
+          "month": 11
+        },
+        "<": {
+          "month": 21
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@stupid-cold": {
+      "go-to": "stupid-cold-2",
+      "view-if": {
+        ">": {
+          "month": 11
+        },
+        "<": {
+          "month": 21
+        }
+      }
+    },
+    "@stupid-cold-2": {
+      "go-to": "cryptogram; logic; math; kenken"
+    },
+    "@kenken": {
+      "go-to": "no-plagiarism"
+    },
+    "@logic": {
+      "@welcome-chance": "The best part is that you have an excuse to do whatever research you like.",
+      "@really-good": "A really good puzzle will show up Mrs. Perry, too."
+    },
+    "@welcome-chance": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@really-good": {
+      "view-if": {
+        ">": {
+          "perry": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@math": {
+      "go-to": "no-plagiarism"
+    }
+  },
+  {
+    "title": "Lettice",
+    "subtitle": "Your sister's place.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 4
+      },
+      "<": {
+        "age": 8
+      },
+      "=": {
+        "let-introduced": 0
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "age": 1
+      },
+      "=": {
+        "let-introduced": 1
+      }
+    },
+    "tags": "plot",
+    "max-visits": "1",
+    "Lettice": {
+      "@mental": "Possibly Lettice is not the sharpest.",
+      "@ally": "Then again, she's your only natural ally."
+    },
+    "@ally": {
+      "on-arrival": {
+        "-=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@mental": {
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Invitation to the Salon",
+    "subtitle": "In which Mrs. Barron proposes an outing.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 0,
+        "barrons": 0
+      },
+      "<": {
+        "hairdresser": 1,
+        "month": 24,
+        "barron-crisis": 1
+      }
+    },
+    "tags": "plot",
+    "on-arrival": {
+      "+=": {
+        "barrons": 1
+      }
+    },
+    "Invitation to the Salon": {
+      "@better-not": "It's really better not to ask what that means."
+    },
+    "@better-not": {
+      "@post-church": "D I G N I F I E D."
+    },
+    "@post-church": {
+      "@anthropology": "You've never been to a salon. Maybe in a spirit of anthropology you should go.",
+      "@father-no": "Father would never approve.",
+      "@wait-to-see": "Wonder what Mother will say."
+    },
+    "@wait-to-see": {
+      "on-arrival": {
+        "=": {
+          "hairdresser": 1,
+          "barron-crisis": 1
+        }
+      }
+    },
+    "@anthropology": {
+      "on-arrival": {
+        "=": {
+          "hairdresser": 1
+        }
+      }
+    },
+    "@father-no": {
+      "@remind-of-vanity": "Remind Mrs. Barron about the anti-aging cream you found while cleaning her bathroom.",
+      "@apologize": "Apologize."
+    },
+    "@apologize": {
+      "on-arrival": {
+        "=": {
+          "hairdresser": 50
+        }
+      }
+    },
+    "@remind-of-vanity": {
+      "view-if": {
+        ">": {
+          "housework": 0
+        }
+      },
+      "@more-detail": "Prove she's bearing false witness against you.",
+      "@let-her-off": "Let her off the hook."
+    },
+    "@let-her-off": {
+      "on-arrival": {
+        "=": {
+          "hairdresser": 50
+        }
+      }
+    },
+    "@more-detail": {
+      "on-arrival": {
+        "=": {
+          "hairdresser": 50
+        }
+      }
+    }
+  },
+  {
+    "title": "German Loan Words",
+    "subtitle": "Loan words often appear in the final round of nationals.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 2
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "drill",
+    "frequency": "500",
+    "German Loan Words": {
+      "@dreck": "DRECK, BLITZ, ERSATZ, GESTALT.",
+      "@schn": "SCHNAPPS, SCHNITZEL, SCHNAUZER.",
+      "@gemutlich": "GEM\u00dcTLICH.",
+      "@anschluss": "ANSCHLUSS, BLITZKRIEG, F\u00dcHRER.",
+      "@ursprache": "URSPRACHE. A word from the finals."
+    },
+    "@schn": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      },
+      "choose-if": {
+        "<": {
+          "age": 9
+        }
+      },
+      "unavailable-subtitle": "You've known those for a while now."
+    },
+    "@dreck": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      },
+      "choose-if": {
+        "<": {
+          "age": 11
+        }
+      },
+      "unavailable-subtitle": "You know all those."
+    },
+    "@gemutlich": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      },
+      "view-if": {
+        ">": {
+          "age": 8
+        }
+      }
+    },
+    "@anschluss": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      },
+      "view-if": {
+        ">": {
+          "age": 9
+        }
+      }
+    },
+    "@ursprache": {
+      "on-arrival": {
+        "+=": {
+          "spelling": 1
+        }
+      },
+      "view-if": {
+        ">": {
+          "age": 10
+        }
+      }
+    }
+  },
+  {
+    "title": "Choosing the Year's Curriculum",
+    "subtitle": "A session with Mother and the chart.",
+    "new-page": "yes",
+    "tags": "top",
+    "view-if": {
+      ">": {
+        "age": 9
+      },
+      "=": {
+        "month": 4
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "Choosing the Year's Curriculum": {
+      "@consider-books": "Consider possible textbooks.",
+      "@schedule": "Schedule more drill time."
+    },
+    "@schedule": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Return to the House of Mildew",
+    "subtitle": "Visiting Jerome and Flauberta's family again.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 8,
+        "jerome": 2
+      },
+      "<": {
+        "month": 24
+      },
+      "=": {
+        "visiting": 0
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "visiting": 1,
+        "jerome": 1
+      }
+    },
+    "tags": "plot",
+    "Return to the House of Mildew": {
+      "@ask-about": "If they eat normally now, what was up with the garlic soup before?",
+      "@mildewy": "And what about the mildew smell?"
+    },
+    "@mildewy": {
+      "go-to": "next-choice"
+    },
+    "@ask-about": {
+      "go-to": "next-choice"
+    },
+    "@next-choice": {
+      "@no-big-deal": "Reassure them that your family doesn't keep score like that.",
+      "@what-about": "Ask them about what else they've heard around the Co-op."
+    },
+    "@what-about": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@no-big-deal": {
+      "on-arrival": {
+        "-=": {
+          "status": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Hawaiian Loan Words",
+    "subtitle": "A short list but strange.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 1
+      },
+      "<": {
+        "month": 24
+      },
+      "=": {
+        "hawaiian": 0
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "spelling": 2,
+        "hawaiian": 1
+      }
+    },
+    "frequency": "100",
+    "tags": "drill",
+    "Hawaiian Loan Words": {
+      "@humu": "HUMUHUMUNUKUNUKUAPUA'A"
+    }
+  },
+  {
+    "title": "The Co-op",
+    "subtitle": "Shared resources with other home-schooling families.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 4
+      },
+      "<": {
+        "age": 8
+      },
+      "=": {
+        "friends-introduced": 0
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "age": 1,
+        "perry": 1
+      },
+      "=": {
+        "friends-introduced": 1
+      }
+    },
+    "tags": "plot",
+    "The Co-op": {
+      "@saxon-math": "Sometimes the books supplement when families are on a low income.",
+      "@creation-myth": "Or introduce them to new ideas.",
+      "@dictionary": "Also, there's a much bigger dictionary than most families have at home."
+    },
+    "@saxon-math": {
+      "go-to": "continuation",
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    },
+    "@creation-myth": {
+      "go-to": "continuation",
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@dictionary": {
+      "go-to": "continuation",
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    },
+    "@continuation": {
+      "@not-often": "Mercifully, your parents don't sign you up often.",
+      "@wish-more": "Actually, it might be nice to have more classes with other kids.",
+      "@more-status": "Or maybe your parents would get more respect from other families if they taught more joint classes themselves."
+    },
+    "@not-often": {
+      "go-to": "bulletin",
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@wish-more": {
+      "go-to": "bulletin",
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@bulletin": {
+      "@it-would": "Maybe it would be better to be one of the Perry kids.",
+      "@then-again": "Then again, nothing could replace your own parents."
+    },
+    "@then-again": {
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    },
+    "@it-would": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@more-status": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      },
+      "@maybe-you": "Maybe you could teach your own class.",
+      "@bulletin": "For now you'll have to make do with field trips with other kids."
+    },
+    "@maybe-you": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Pentecost",
+    "subtitle": "The feast of the Holy Spirit at church.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "month": 22
+      },
+      ">": {
+        "age": 7
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "seasonal",
+    "Pentecost": {
+      "@flambeaux": "FLAMBEAUX.",
+      "@crucible": "CRUCIBLE.",
+      "@pyroclast": "PYROCLAST.",
+      "@ignis": "IGNIS FATUUS."
+    },
+    "@flambeaux": {
+      "view-if": {
+        ">": {
+          "world": 0
+        }
+      },
+      "go-to": "final",
+      "on-arrival": {
+        "-=": {
+          "world": 1
+        }
+      }
+    },
+    "@ignis": {
+      "view-if": {
+        ">": {
+          "perry": 0
+        }
+      },
+      "go-to": "final",
+      "on-arrival": {
+        "-=": {
+          "status": 1
+        }
+      }
+    },
+    "@crucible": {
+      "go-to": "final",
+      "on-arrival": {
+        "=": {
+          "motivation": 2
+        }
+      }
+    },
+    "@pyroclast": {
+      "view-if": {
+        ">": {
+          "parents": 1
+        }
+      },
+      "go-to": "final",
+      "on-arrival": {
+        "-=": {
+          "parents": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "It's All Happening At the Zoo",
+    "subtitle": "Your co-op's yearly trip to the Zoo.",
+    "new-page": "yes",
+    "tags": "top",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "=": {
+        "month": 7
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "priority": "2",
+    "It's All Happening At the Zoo": {
+      "@hang-perrys": "Go to the South American exhibit with the Perry family.",
+      "@hang-jerome": "Do the reptile house with Jerome and Flauberta.",
+      "@hang-barrons": "Accompany Mrs. Barron and the Barron boys to see the lions.",
+      "@hang-lettice": "Take a drawing expedition with Lettice.",
+      "@whatever": "Wander solo."
+    },
+    "@hang-perrys": {
+      "view-if": {
+        ">": {
+          "perry": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "status": 1,
+          "perry": 1
+        }
+      },
+      "@snap": "Snap obediently.",
+      "@candid": "Wait for an awkwardly candid moment."
+    },
+    "@hang-jerome": {
+      "view-if": {
+        ">": {
+          "jerome": 0,
+          "child-led": 1
+        }
+      },
+      "choose-if": {
+        ">": {
+          "jerome": 3
+        }
+      },
+      "unavailable-subtitle": "Jerome doesn't seem keen for your company.",
+      "on-arrival": {
+        "+=": {
+          "jerome": 1
+        }
+      },
+      "@reptiles": "What's so great about reptiles?"
+    },
+    "@reptiles": {
+      "@sneak-jerome": "Peek at Jerome's Post-It.",
+      "@sneak-flauberta": "Peek at Flauberta's Post-It."
+    },
+    "@hang-barrons": {
+      "view-if": {
+        ">": {
+          "barrons": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "barrons": 1
+        }
+      }
+    },
+    "@hang-lettice": {
+      "view-if": {
+        ">": {
+          "age": 10
+        }
+      },
+      "choose-if": {
+        "<": {
+          "lettice": 4
+        }
+      },
+      "unavailable-subtitle": "A whole day with Lettice? As if.",
+      "on-arrival": {
+        "-=": {
+          "lettice": 1
+        },
+        "+=": {
+          "parents": 1
+        }
+      }
+    },
+    "@whatever": {
+      "go-to": "polar; night; tortoises"
+    }
+  },
+  {
+    "title": "Mrs. Barron Commands",
+    "subtitle": "A little light housework at the Barron household.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "barrons": 0
+      },
+      "<": {
+        "housework": 1,
+        "month": 24
+      }
+    },
+    "tags": "plot",
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "barrons": 1
+      },
+      "=": {
+        "housework": 1
+      }
+    },
+    "Mrs. Barron Commands": {
+      "@absolute-no": "Glare at Mother so that she'll spare you from this fate.",
+      "@pray": "Pray."
+    },
+    "@absolute-no": {
+      "go-to": "more-offer"
+    },
+    "@pray": {
+      "go-to": "more-offer"
+    },
+    "@more-offer": {
+      "@washing": "Propose that the boys start on the washing up.",
+      "@laundry": "Suggest Lettice gather the dirty clothes and start the laundry.",
+      "@sorting": "Recommend that Mrs. Barron sort out what can't be lost."
+    },
+    "@washing": {
+      "@what-chores": "Find out what they are good at, then.",
+      "@agree-not": "Mrs. Barron seems to mean that you shouldn't rely on the boys."
+    },
+    "@agree-not": {
+      "go-to": "home-again"
+    },
+    "@what-chores": {
+      "go-to": "home-again"
+    },
+    "@laundry": {
+      "go-to": "home-again"
+    },
+    "@sorting": {
+      "go-to": "home-again"
+    },
+    "@home-again": {
+      "@bedtime": "Home at last."
+    },
+    "@bedtime": {
+      "@parent-fear": "It's not that charitable to make your kids do your charity work for you.",
+      "@poverty-fear": "Did Mrs. Barron give us something good in barter?",
+      "@status-fear": "I don't know why you let Mrs. Barron boss you like that."
+    },
+    "@parent-fear": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "go-to": "final"
+    },
+    "@status-fear": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      },
+      "go-to": "final"
+    },
+    "@poverty-fear": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      },
+      "go-to": "final"
+    }
+  },
+  {
+    "title": "The Family with All the Stuff",
+    "subtitle": "An introduction to Mrs. Barron",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "barrons": 1,
+        "month": 24
+      }
+    },
+    "tags": "plot",
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "barrons": 1
+      }
+    },
+    "The Family with All the Stuff": {
+      "@homely-virtues": "What sort of Jezebel paints her nails and doesn't clean house?",
+      "@certain-intrigue": "It's chaotic, but it has a certain compelling quality."
+    },
+    "@homely-virtues": {
+      "go-to": "much-visiting",
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@certain-intrigue": {
+      "go-to": "much-visiting",
+      "on-arrival": {
+        "+=": {
+          "world": 2
+        }
+      }
+    },
+    "@much-visiting": {
+      "@let-lie": "What does she expect you to say to that, exactly?",
+      "@mother-does": "Mother does her best.",
+      "@strange-then": "Yes, even the crazy woman thinks your parents are strange."
+    },
+    "@strange-then": {
+      "on-arrival": {
+        "+=": {
+          "parents": 1
+        }
+      },
+      "go-to": "boys-your"
+    },
+    "@mother-does": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      },
+      "go-to": "boys-your"
+    },
+    "@let-lie": {
+      "go-to": "boys-your"
+    }
+  },
+  {
+    "title": "Mother's Temporary Work",
+    "subtitle": "Difficulties with the bank.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "poverty": 10
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "priority": "2",
+    "on-arrival": {
+      "=": {
+        "month": 29
+      },
+      "+=": {
+        "poverty": 1
+      }
+    },
+    "tags": "menace",
+    "Mother's Temporary Work": {
+      "@what-about": "What about school?"
+    },
+    "@what-about": {
+      "@phones": "The phone rings more often in the morning."
+    },
+    "@phones": {
+      "@ask-about": "Ask her about the mascara when you catch her putting it on."
+    }
+  },
+  {
+    "title": "That Question",
+    "subtitle": "A standard conversation.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "menace",
+    "frequency": "500",
+    "go-to": "first-possible-chunk; second-possible-chunk; third-possible-chunk",
+    "@first-possible-chunk": {
+      "go-to": "always"
+    },
+    "@second-possible-chunk": {
+      "go-to": "always"
+    },
+    "@third-possible-chunk": {
+      "go-to": "always"
+    },
+    "@always": {
+      "@of-course": "You meet people at church.",
+      "@co-ops": "And there are the home-schooling co-ops.",
+      "@rude": "On top of which, it's a bit rude to ask.",
+      "@still": "Still, it probably does seem weird to outsiders."
+    },
+    "@co-ops": {
+      "@okay": "Lettice is okay. Mostly.",
+      "@notokay": "Unfortunately."
+    },
+    "@rude": {
+      "view-if": {
+        "<": {
+          "world": 3
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@still": {
+      "view-if": {
+        ">": {
+          "world": 2
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    },
+    "@okay": {
+      "view-if": {
+        "<": {
+          "lettice": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "lettice": 1
+        }
+      }
+    },
+    "@notokay": {
+      "view-if": {
+        ">": {
+          "lettice": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "lettice": 2
+        }
+      }
+    }
+  },
+  {
+    "title": "Performance Practice",
+    "subtitle": "Spelling bees aren't just about spelling.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "age": 7,
+        "spelling": 2
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "spelling": 1,
+        "perry": 1
+      }
+    },
+    "frequency": "40",
+    "tags": "drill",
+    "Performance Practice": {
+      "@stand": "Stand up straight.",
+      "@speak-clear": "Speak clearly.",
+      "@visualize": "Visualize each word written on a page before trying to spell it."
+    },
+    "@stand": {
+      "go-to": "criticism"
+    },
+    "@speak-clear": {
+      "go-to": "criticism"
+    },
+    "@visualize": {
+      "go-to": "criticism"
+    },
+    "@criticism": {
+      "go-to": "lip-move; what-wearing"
+    },
+    "@what-wearing": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    },
+    "@lip-move": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Exercises in Reading Between the Lines",
+    "subtitle": "A question of employment.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "english": 2
+      },
+      "<": {
+        "english": 4,
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1,
+        "english": 1,
+        "sara": 1
+      }
+    },
+    "tags": "plot",
+    "Exercises in Reading Between the Lines": {
+      "@feminism": "Is she feminist?",
+      "@atheism": "Is she atheist?"
+    },
+    "@feminism": {
+      "@promise-silence": "Promise not to tell the parents."
+    },
+    "@promise-silence": {
+      "@rhetoric": "Ah, rhetorical terms. Now you're on familiar ground."
+    },
+    "@atheism": {
+      "@cop-out": "That was a cop-out if you ever heard one.",
+      "@afraid-losing": "Perhaps she's afraid of losing the fee for teaching you."
+    },
+    "@cop-out": {
+      "go-to": "sags"
+    },
+    "@afraid-losing": {
+      "go-to": "sags",
+      "view-if": {
+        ">": {
+          "poverty": 0
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Lessons from Sara",
+    "subtitle": "English lessons begin.",
+    "new-page": "yes",
+    "view-if": {
+      "=": {
+        "english": 1
+      },
+      ">": {
+        "age": 0
+      },
+      "<": {
+        "month": 24
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "english": 2,
+        "month": 1,
+        "sara": 1
+      }
+    },
+    "tags": "plot",
+    "go-to": "othello; henry",
+    "@othello": {
+      "@devil": "The Devil? Black is often for the devil."
+    },
+    "@devil": {
+      "go-to": "disappointment"
+    },
+    "@henry": {
+      "@yes": "They seem logically argued."
+    },
+    "@yes": {
+      "go-to": "disappointment"
+    },
+    "@disappointment": {
+      "@magenta": "What does magenta represent?",
+      "@spelling-time": "It's time for spelling now, anyway.",
+      "@study-would": "Study questions would help."
+    },
+    "@spelling-time": {
+      "on-arrival": {
+        "+=": {
+          "spelling-relief": 1
+        }
+      }
+    },
+    "@magenta": {
+      "on-arrival": {
+        "+=": {
+          "world": 1
+        }
+      },
+      "@spelling-time": "It's time for spelling now, anyway.",
+      "@study-would": "Study questions would help."
+    },
+    "@study-would": {
+      "@if-cant": "If it can't be wrong, what's the point of learning it?",
+      "@spelling-time": "It's time for spelling now, anyway."
+    },
+    "@if-cant": {
+      "@no": "That story about Ruth and Boaz seemed more innocent a couple years ago.",
+      "@spelling-time": "It's time for spelling now, anyway."
+    },
+    "@no": {
+      "@except": "Except the Bible.",
+      "@spelled-wrong": "Except if you don't know the right meanings of words.",
+      "@spelling-time": "It's time for spelling now, anyway."
+    }
+  },
+  {
+    "title": "Church Jumble Sale",
+    "subtitle": "Helping sort goods for the annual fundraiser.",
+    "new-page": "yes",
+    "view-if": {
+      ">": {
+        "status": 1
+      },
+      "<": {
+        "status": 6
+      },
+      "=": {
+        "month": 14
+      }
+    },
+    "on-arrival": {
+      "+=": {
+        "month": 1
+      }
+    },
+    "tags": "menace",
+    "Church Jumble Sale": {
+      "@fountainhead": "Flip through *The Fountainhead*.",
+      "@erase": "Carefully erase pencil marks from *The Boys' and Girls' Cookbook*.",
+      "@eavesdrop": "Eavesdrop on Jerome and Flauberta.",
+      "@chat-with": "Chat with Jerome.",
+      "@chat-with-2": "Chat with Jerome and Flauberta."
+    },
+    "@eavesdrop": {
+      "view-if": {
+        ">": {
+          "jerome": 1
+        },
+        "<": {
+          "jerome": 4,
+          "child-led": 1
+        }
+      },
+      "on-arrival": {
+        "+=": {
+          "jerome": 1
+        }
+      }
+    },
+    "@chat-with": {
+      "view-if": {
+        ">": {
+          "jerome": 1
+        },
+        "<": {
+          "child-led": 1
+        }
+      },
+      "choose-if": {
+        ">": {
+          "jerome": 3
+        }
+      },
+      "unavailable-subtitle": "Jerome is ignoring you.",
+      "on-arrival": {
+        "+=": {
+          "jerome": 1
+        }
+      },
+      "@disagree": "Which it isn't, really.",
+      "@joker": "Suggest drawing a three of spades over the joker of the pack."
+    },
+    "@joker": {
+      "on-arrival": {
+        "+=": {
+          "jerome": 1
+        }
+      }
+    },
+    "@chat-with-2": {
+      "view-if": {
+        ">": {
+          "jerome": 1,
+          "child-led": 0
+        }
+      },
+      "choose-if": {
+        ">": {
+          "jerome": 3
+        }
+      },
+      "unavailable-subtitle": "Jerome is ignoring you.",
+      "on-arrival": {
+        "+=": {
+          "jerome": 1
+        }
+      },
+      "@mrs-perry": "He's still not going to get Mrs. Perry to change the jumble sale.",
+      "@cool": "It's cool his parents are letting him do better projects."
+    },
+    "@erase": {
+      "@let-mrs": "Let Mrs. Perry see what you're doing when she comes around to inspect.",
+      "@then-again": "Then again, Mrs. Perry is sometimes unpredictably disapproving."
+    },
+    "@then-again": {
+      "on-arrival": {
+        "-=": {
+          "status": 1
+        }
+      }
+    },
+    "@let-mrs": {
+      "on-arrival": {
+        "+=": {
+          "status": 1,
+          "perry": 1
+        }
+      }
+    },
+    "@fountainhead": {
+      "@suggest": "Suggest you didn't care for the bit you read.",
+      "@blank": "Look blankly curious.",
+      "@point-out": "Point out that you're not a teenager yet."
+    },
+    "@point-out": {
+      "view-if": {
+        "<": {
+          "age": 13
+        }
+      }
+    },
+    "@blank": {
+      "on-arrival": {
+        "+=": {
+          "poverty": 1
+        }
+      }
+    },
+    "@suggest": {
+      "on-arrival": {
+        "+=": {
+          "status": 1
+        }
+      }
+    }
+  },
+  {
+    "title": "Epilogue",
+    "subtitle": "Down the corridor of years.",
+    "new-page": "yes",
+    "tags": "top",
+    "view-if": {
+      "=": {
+        "month": 26
+      }
+    },
+    "on-arrival": {
+      "=": {
+        "epilogued": 1
+      }
+    },
+    "Epilogue": {
+      "@and-choose": "And you're allowed to choose for yourself."
+    }
+  }
+]
