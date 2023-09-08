@@ -261,7 +261,8 @@ function _qPreview(DendryQuery,requiredNodes,forbiddenNodes,pinnedNodes,forcedNo
       force: forcedNodes
     },
     $0.value,
-    $1.value
+    $1.value,
+    "previewOnly"
   );
 }
 
@@ -795,11 +796,13 @@ function _legendTags(scenesIndex,legend,scenes)
 }
 
 
-async function _visibility(q){return(
-(await q.getFrontier())
-  .slice(-1)[0]
-  .filter((s) => s.includes("visited"))
-)}
+async function _visibility(q){
+  try {
+    let res = await q.getFrontier();
+    return res.slice(-1)[0].filter((s) => s.includes("visited")); // "visited"
+  } catch {
+    return [];
+  }}
 
 function _steps(visibility,filterIndex,mungePredicate){return(
 visibility
@@ -842,70 +845,77 @@ function _mungePredicate(){return(
 )}
 
 function _DendryQuery(ruleString,domainString,run){return(
-class DendryQuery {
-  constructor(
-    constraint = { require: [], forbid: [], pin: [], force: [] },
-    horizon = 25,
-    timeoutAfter = 3000,
-    maxWorlds = 0, // 100
-    maxTraces = 400 // 200
-  ) {
-    if (!constraint.require) constraint.require = [];
-    if (!constraint.forbid) constraint.forbid = [];
-    if (!constraint.pin) constraint.pin = [];
-    if (!constraint.force) constraint.force = [];
-
-    this.argumentString = `
-${constraint.require.map((u) => `goal(${u}).`).join("\n")}
-${constraint.forbid.map((u) => `poison(${u}).`).join("\n")}
-
-quality(Q) :- wants(X,Q,Op,V).
-quality(Q) :- sets(X,Q,Op,V).
-has(Q,0,1) :- quality(Q). 
-
-#const n=${horizon}.
-`;
-    this.forceString = constraint.force.map((uv) => `pin(${uv}).`).join("\n");
-    let frontierCode = [
-      this.forceString,
-      this.argumentString,
-      ruleString,
-      domainString
-    ].join("\n");
-    this.pinString = constraint.pin.map((uv) => `pin(${uv}).`).join("\n");
-    let traceCode = [this.pinString, frontierCode].join("\n");
-
-    this.worker = new Promise(async function (resolve, reject) {
-      // VERIFY: clingo-wasm doesn't want to run in parallel
-      let frontier = await run(frontierCode, maxWorlds, ["--enum-mode=brave"]);
-      let traces = await run(traceCode, maxTraces, []);
-
-      if (frontier.Result === "ERROR") reject("oops - frontier failed");
-      if (traces.Result === "ERROR") reject("oops - trace failed");
-      resolve({
-        frontier: frontier.Call[0].Witnesses.map((w) => w.Value),
-        traces: traces.Call[0].Witnesses.map((w) => w.Value)
+  class DendryQuery {
+    constructor(
+      constraint = { require: [], forbid: [], pin: [], force: [] },
+      horizon = 25,
+      timeoutAfter = 3000,
+      maxWorlds = 0, // 100
+      maxTraces = 400, // 200
+      previewOnly = false
+    ) {
+      if (!constraint.require) constraint.require = [];
+      if (!constraint.forbid) constraint.forbid = [];
+      if (!constraint.pin) constraint.pin = [];
+      if (!constraint.force) constraint.force = [];
+  
+      this.argumentString = `
+  ${constraint.require.map((u) => `goal(${u}).`).join("\n")}
+  ${constraint.forbid.map((u) => `poison(${u}).`).join("\n")}
+  
+  quality(Q) :- wants(X,Q,Op,V).
+  quality(Q) :- sets(X,Q,Op,V).
+  has(Q,0,1) :- quality(Q). 
+  
+  #const n=${horizon}.
+  `;
+      this.forceString = constraint.force.map((uv) => `pin(${uv}).`).join("\n");
+      let frontierCode = [
+        this.forceString,
+        this.argumentString,
+        ruleString,
+        domainString
+      ].join("\n");
+      this.pinString = constraint.pin.map((uv) => `pin(${uv}).`).join("\n");
+      let traceCode = [this.pinString, frontierCode].join("\n");
+  
+      this.worker = previewOnly
+        ? Promise.resolve({ frontier: null, traces: null })
+        : new Promise(async function (resolve, reject) {
+            // VERIFY: clingo-wasm doesn't want to run in parallel
+            console.log("running workers");
+            let frontier = await run(frontierCode, maxWorlds, [
+              "--enum-mode=brave"
+            ]);
+            let traces = await run(traceCode, maxTraces, []);
+            console.log("done");
+  
+            if (frontier.Result === "ERROR") reject("oops - frontier failed");
+            if (traces.Result === "ERROR") reject("oops - trace failed");
+            resolve({
+              frontier: frontier.Call[0].Witnesses.map((w) => w.Value),
+              traces: traces.Call[0].Witnesses.map((w) => w.Value)
+            });
+          });
+      this.timeout = new Promise(async function (resolve, reject) {
+        // await run; // on page load, don't start counting until wasm is ready
+        setTimeout(function () {
+          reject("Timed out after " + timeoutAfter / 1000 + "s");
+          // resolve({ frontier: null, traces: null });
+          // {traces: Time: { Total: timeoutAfter / 1000 }}
+        }, timeoutAfter);
       });
-    });
-    this.timeout = new Promise(function (resolve, reject) {
-      setTimeout(function () {
-        reject("Timed out after " + timeoutAfter / 1000 + "s");
-        // resolve({ frontier: null, traces: null });
-        // {traces: Time: { Total: timeoutAfter / 1000 }}
-      }, timeoutAfter);
-    });
-    this.analysis = Promise.race([this.worker, this.timeout]);
-    // TODO: halt worker's wasm thread on timeout
-
-    this.getFrontier = async function () {
-      return (await this.analysis).frontier;
-    };
-    this.getTraces = async function () {
-      return (await this.analysis).traces;
-    };
-  }
-}
-)}
+      this.analysis = Promise.race([this.worker, this.timeout]);
+      // FIXME: halt webassembly worker thread on timeout
+  
+      this.getFrontier = async function () {
+        return (await this.analysis).frontier;
+      };
+      this.getTraces = async function () {
+        return (await this.analysis).traces;
+      };
+    }
+  })}
 
 function _ruleString(){return(
 `
