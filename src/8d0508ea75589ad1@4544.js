@@ -339,7 +339,7 @@ function _timeout(Inputs){return(
 Inputs.range([0, 30000], {
   label: "give up after this many ms",
   step: 1000,
-  value: 12000
+  value: 2000
 })
 )}
 
@@ -1329,20 +1329,22 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["bee-scenes-ast@2.json", {url: new URL("../files/d40ed751d78762152ac802170df5e29559e7bc94ee5217c15098b8394504c05d9178a1daa9dd106136399f92fbf5ff72736e04f64284c523a09689fdc5eb4a71.json", import.meta.url), mimeType: "application/json", toString}]
+    ["bee-scenes-ast@2.json", "./dist/3d213cdc68443ea49186.json"]
+	// {url: new URL("../files/d40ed751d78762152ac802170df5e29559e7bc94ee5217c15098b8394504c05d9178a1daa9dd106136399f92fbf5ff72736e04f64284c523a09689fdc5eb4a71.json", import.meta.url), mimeType: "application/json", toString}
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
-  main.variable(observer()).define(["md"], _1);
-  main.variable(observer("legendSwatches")).define("legendSwatches", ["Swatches","colorByTag"], _legendSwatches);
+
+  main.variable(observer()).define("legendSwatches", ["Swatches","colorByTag"], _legendSwatches);
   main.variable(observer()).define(["html","legendSwatches","hoverPredicate"], _3);
-  main.variable(observer("viewof peek")).define("viewof peek", ["html","width","d3","xScale","steps","horizon","Event","mutable xSelection","visibilityChart"], _peek);
-  main.variable(observer("peek")).define("peek", ["Generators", "viewof peek"], (G, _) => G.input(_));
-  main.variable(observer("visibilityChart")).define("visibilityChart", ["legend","html","d3","colorByTag","legendTags","mutable requiredNodes","mutable forbiddenNodes","stepFrequencies","mutable xSelection","mutable pinnedNodes","mutable forcedNodes","steps","mutable hoverPredicate"], _visibilityChart);
-  main.variable(observer("controlBox")).define("controlBox", ["html","viewof horizon","viewof timeout","viewof doQuery"], _controlBox);
-  main.variable(observer("inspectorBox")).define("inspectorBox", ["html","makeCard","scene","sceneVersion","makeStateChart"], _inspectorBox);
-  main.variable(observer()).define(["sceneVersion"], _9);
+  main.variable(observer()).define("viewof peek", ["html","width","d3","xScale","steps","horizon","Event","mutable xSelection","visibilityChart"], _peek);
+  main.variable(observer()).define("peek", ["Generators", "viewof peek"], (G, _) => G.input(_));
+  main.variable(observer()).define("visibilityChart", ["legend","html","d3","colorByTag","legendTags","mutable requiredNodes","mutable forbiddenNodes","stepFrequencies","mutable xSelection","mutable pinnedNodes","mutable forcedNodes","steps","mutable hoverPredicate"], _visibilityChart);
+  main.variable(observer()).define("controlBox", ["html","viewof horizon","viewof timeout","viewof doQuery"], _controlBox);
+  main.variable(observer()).define("inspectorBox", ["html","makeCard","scene","sceneVersion","makeStateChart"], _inspectorBox);
+  main.variable(observer("sceneVersion")).define(["sceneVersion"], _9);
   main.variable(observer("qPreview")).define("qPreview", ["DendryQuery","requiredNodes","forbiddenNodes","pinnedNodes","forcedNodes","viewof horizon","viewof timeout"], _qPreview);
-  main.variable(observer("queryPreview")).define("queryPreview", ["qPreview"], _queryPreview);
+  main.variable(observer()).define("queryPreview", ["qPreview"], _queryPreview);
+  
   main.define("initial pinnedNodes", _pinnedNodes);
   main.variable(observer("mutable pinnedNodes")).define("mutable pinnedNodes", ["Mutable", "initial pinnedNodes"], (M, _) => new M(_));
   main.variable(observer("pinnedNodes")).define("pinnedNodes", ["mutable pinnedNodes"], _ => _.generator);
@@ -1356,9 +1358,12 @@ export default function define(runtime, observer) {
   main.variable(observer("mutable forbiddenNodes")).define("mutable forbiddenNodes", ["Mutable", "initial forbiddenNodes"], (M, _) => new M(_));
   main.variable(observer("forbiddenNodes")).define("forbiddenNodes", ["mutable forbiddenNodes"], _ => _.generator);
   main.variable(observer("q")).define("q", ["doQuery","DendryQuery","mutable requiredNodes","mutable forbiddenNodes","mutable pinnedNodes","mutable forcedNodes","viewof horizon","viewof timeout"], _q);
-  main.variable(observer("viewof browseTag")).define("viewof browseTag", ["Inputs","scenes"], _browseTag);
+  
+  main.variable(observer()).define("viewof browseTag", ["Inputs","scenes"], _browseTag);
   main.variable(observer("browseTag")).define("browseTag", ["Generators", "viewof browseTag"], (G, _) => G.input(_));
   main.variable(observer()).define(["md","scenes","browseTag","d3"], _18);
+  main.variable(observer()).define(["md"], _1);
+  
   main.variable(observer("xScale")).define("xScale", ["d3","horizon","width"], _xScale);
   main.variable(observer("viewof horizon")).define("viewof horizon", ["Inputs"], _horizon);
   main.variable(observer("horizon")).define("horizon", ["Generators", "viewof horizon"], (G, _) => G.input(_));
@@ -1382,7 +1387,7 @@ export default function define(runtime, observer) {
   main.variable(observer("mutable xSelection")).define("mutable xSelection", ["Mutable", "initial xSelection"], (M, _) => new M(_));
   main.variable(observer("xSelection")).define("xSelection", ["mutable xSelection"], _ => _.generator);
   main.variable(observer("getLabels")).define("getLabels", _getLabels);
-  main.variable(observer()).define(["md"], _30);
+  // main.variable(observer()).define(["md"], _30);
   main.variable(observer("scenes")).define("scenes", ["ast","getLabels"], _scenes);
   main.variable(observer("egress")).define("egress", _egress);
   main.variable(observer("labelsIn")).define("labelsIn", _labelsIn);
@@ -1411,30 +1416,30 @@ export default function define(runtime, observer) {
   main.variable(observer("postconditions")).define("postconditions", ["mungeOpsTree","nodesIn"], _postconditions);
   main.variable(observer("combineOnArrival")).define("combineOnArrival", _combineOnArrival);
   main.variable(observer("combineViewIf")).define("combineViewIf", _combineViewIf);
-  main.variable(observer()).define(["pathsByScene","scenes"], _60);
+  // main.variable(observer()).define(["pathsByScene","scenes"], _60);
   main.variable(observer("pathsByScene")).define("pathsByScene", ["combineOnArrival","combineViewIf"], _pathsByScene);
   main.variable(observer("scenesExpanded")).define("scenesExpanded", ["scenes","pathsByScene"], _scenesExpanded);
   main.variable(observer("scenesIndex")).define("scenesIndex", ["scenesExpanded"], _scenesIndex);
   main.variable(observer("hand")).define("hand", ["scenesIndex"], _hand);
   main.variable(observer("domainString")).define("domainString", ["scenesIndex","hand","scenes","scenesExpanded","preconditions","postconditions"], _domainString);
-  main.variable(observer()).define(["md"], _66);
+  // main.variable(observer()).define(["md"], _66);
   main.variable(observer("pres")).define("pres", ["scenes","extract"], _pres);
   main.variable(observer("posts")).define("posts", ["scenes","extract"], _posts);
   main.variable(observer("variables")).define("variables", ["pres","posts"], _variables);
   main.variable(observer("makeToggle")).define("makeToggle", ["Inputs"], _makeToggle);
-  main.variable(observer()).define(["md"], _71);
+  // main.variable(observer()).define(["md"], _71);
   main.define("initial filterEffectsBuffer", _filterEffectsBuffer);
   main.variable(observer("mutable filterEffectsBuffer")).define("mutable filterEffectsBuffer", ["Mutable", "initial filterEffectsBuffer"], (M, _) => new M(_));
   main.variable(observer("filterEffectsBuffer")).define("filterEffectsBuffer", ["mutable filterEffectsBuffer"], _ => _.generator);
   main.variable(observer("conditionsByVar")).define("conditionsByVar", _conditionsByVar);
   main.variable(observer("effectsByVar")).define("effectsByVar", _effectsByVar);
   main.variable(observer("extract")).define("extract", _extract);
-  main.variable(observer()).define(["md"], _76);
+  // main.variable(observer()).define(["md"], _76);
   main.variable(observer("ast")).define("ast", ["FileAttachment"], _ast);
   main.variable(observer("run")).define("run", ["require"], _run);
   const child1 = runtime.module(define1);
   main.import("Swatches", child1);
-  main.variable(observer()).define(["md"], _81);
+  // main.variable(observer()).define(["md"], _81);
   main.variable(observer("pathsFrom")).define("pathsFrom", ["scenes"], _pathsFrom);
   main.variable(observer("paths")).define("paths", ["pathsFrom"], _paths);
   return main;
