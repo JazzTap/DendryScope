@@ -1,8 +1,8 @@
 {
-  "name": "@jazztap/dendryscope-pilot",
-  "main": "84acdd99c4e542c7@3452.js",
-  "version": "3452.0.0",
-  "homepage": "https://observablehq.com/@jazztap/dendryscope-pilot",
+  "name": "@jazztap/dendryscope-demo",
+  "main": "8d0508ea75589ad1@4544.js",
+  "version": "1.0.0",
+  "homepage": "https://observablehq.com/@jazztap/dendryscope-demo",
   "author": {
     "name": "Jasmine Otto",
     "url": "https://observablehq.com/@jazztap"
@@ -10,5 +10,23 @@
   "type": "module",
   "peerDependencies": {
     "@observablehq/runtime": "4 - 5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.15",
+    "@babel/preset-env": "^7.21.5",
+    "@webpack-cli/generators": "^3.0.7",
+    "babel-loader": "^9.1.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "description": "My webpack project",
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
+  },
+  "dependencies": {
+    "@open-wc/webpack-import-meta-loader": "^0.4.7"
   }
 }

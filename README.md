@@ -1,6 +1,6 @@
-# Dendryscope Pilot
+# Dendryscope Demo
 
-https://observablehq.com/@jazztap/dendryscope-pilot@3452
+https://observablehq.com/@jazztap/dendryscope-demo@4544
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,14 +14,14 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@5
-npm install https://api.observablehq.com/d/84acdd99c4e542c7@3452.tgz?v=3
+npm install https://api.observablehq.com/d/8d0508ea75589ad1@4544.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
 
 ~~~js
 import {Runtime, Inspector} from "@observablehq/runtime";
-import define from "@jazztap/dendryscope-pilot";
+import define from "@jazztap/dendryscope-demo";
 ~~~
 
 To log the value of the cell named “foo”:
