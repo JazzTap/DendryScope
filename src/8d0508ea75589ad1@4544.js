@@ -969,6 +969,7 @@ function _DendryQuery(ruleString,domainString,run){ return class DendryQuery {
 
 function _ruleString(){return(
 `
+%%% Solver logic begins.
 step(0..n).                                 % bounded time
 value(-1..24). 
 
@@ -1027,9 +1028,8 @@ has(Q,V,T+1) :-                                % floodfill values until mark
   step(T),
 	not updated(Q,T).
 
-% #show time_1(Q,V): has(Q,V,1), V > 0.
+%%% Solver logic ends.
 % #show has(Q,V,T): has(Q,V,T), V > 0.
-
 #show reaches(Q,V): has(Q,V,T), T == n, V != 0.
 #show visited/2.
 `
@@ -1202,7 +1202,6 @@ scenesIndex.filter((u) => u[0]["max-choices"]).map((u) => u.label)
 function _domainString(scenesIndex,hand,scenes,scenesExpanded,preconditions,postconditions)
 {
   return `
-hub(enter). node(enter).
 node(${scenesIndex
     .map((s) => s.label)
     .filter((l) => !hand.includes(l))
@@ -1420,6 +1419,7 @@ export default function define(runtime, observer) {
   main.variable(observer("forbiddenNodes")).define("forbiddenNodes", ["mutable forbiddenNodes"], _ => _.generator);
   main.variable(observer("q")).define("q", ["doQuery","DendryQuery","mutable requiredNodes","mutable forbiddenNodes","mutable pinnedNodes","mutable forcedNodes","viewof horizon","viewof timeout"], _q);
   
+  main.variable(observer()).define("traces", ["q"], (q) => q.getTraces())
   main.variable(observer()).define("viewof browseTag", ["Inputs","scenes"], _browseTag);
   main.variable(observer("browseTag")).define("browseTag", ["Generators", "viewof browseTag"], (G, _) => G.input(_));
   main.variable(observer()).define(["md","scenes","browseTag","d3"], _18);
