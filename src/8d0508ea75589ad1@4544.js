@@ -1,9 +1,30 @@
 import define1 from "./a33468b95d0b15b0@808.js";
 
 function _1(md){return(
-md`# Dendryscope Demo
-- [Bee](https://inthewalls.itch.io/bee) (2012, Emily Short) [[source]](https://github.com/dendry/bee)
-- [Clingo](https://teaching.potassco.org/) (via Dominic Moritz's WASM port) [[demo]](https://observablehq.com/@cmudig/clingo)  `
+md`# DendryScope 
+This demonstration produces the skein [Bee](https://inthewalls.itch.io/bee) (2012, Emily Short) [[source]](https://github.com/aucchen/bee)
+in an interactive query environment powered by Dominic Moritz's port of [[Clingo]](https://observablehq.com/@cmudig/clingo).
+
+Press the 'Run' button to produce a skein. Cells in the skein mean that scene was seen at that time.  
+Hover over a blue cell to view the quality display (bottom-right). The black boxes represent all quality-value pairs observed at the time horizon across traces visiting that cell.
+
+### Operating the Skein
+Grey cells are reachable but not demonstrated. Click once on a cell to add a blue pin. Running the new query will demonstrate that cell.  
+Click twice on a cell to add a grey pin, which forbids all traces that do not visit it.
+
+Top-level scenes appear in the sidebar (left), at the top of a list of variations.  
+These variations appear in the scene tree (bottom-left), where they correspond to the **bolded path**.  
+
+Click once on the name of a scene in the sidebar to set it as a goal. If you set the top-level scene as the goal, any variation wiil be allowed.  
+Click twice on the name of a scene in the sidebar to poison it. No traces will be able to visit that scene.  
+
+### Adjusting the Configuration
+Queries for many timesteps (more than 10) take a longer time to run.  
+Adding constraints, removing them, or increasing the time horizon should be performed one step at a time for the sake of understanding.
+
+You can increase the automatic timeout threshold (beyond 2 seconds), but very slow queries may lock up.  
+If your DendryScope is not responsive, please make note of your query and re-open DendryScope in another tab.  
+`
 )}
 
 function _legendSwatches(Swatches,colorByTag){return(
@@ -83,7 +104,7 @@ function _peek(html,width,d3,xScale,steps,horizon,Event,$0,visibilityChart)
     if (selection === null) {
       weight.attr("stroke", null);
     } else {
-      const [x0, x1] = selection.map(xInvert).map((k) => Math.floor(k));
+      const [x0, x1] = selection.map(xInvert).map((k) => Math.floor(k+1));
       weight.attr("stroke", (d) => (x0 <= d && d <= x1 ? "red" : null));
 
       ret.value = [Math.max(x0, 0), x1];
@@ -97,7 +118,7 @@ function _peek(html,width,d3,xScale,steps,horizon,Event,$0,visibilityChart)
 }
 
 
-function _visibilityChart(legend,html,d3,colorByTag,legendTags,$0,$1,stepFrequencies,$2,$3,$4,steps,$5)
+function _visibilityChart(legend,html,d3,colorByTag,legendTags,$0,$1,stepFrequencies,$2,$3,$4,steps,$5,$6)
 {
   let height = Math.max(...Object.values(legend));
   let ret = html`
@@ -181,8 +202,7 @@ function _visibilityChart(legend,html,d3,colorByTag,legendTags,$0,$1,stepFrequen
               : ""
           }`
       );
-    // pinned beats
-    // console.log(mutable pinnedNodes[0].split(","));
+    // pinned steps
     pins
       .selectAll("ellipse")
       .data([
@@ -217,13 +237,21 @@ function _visibilityChart(legend,html,d3,colorByTag,legendTags,$0,$1,stepFrequen
       d3.select(this).style("stroke", "none");
     })
     .on("mousedown", function (e, d) {
+
       let s = d.join(",");
-      if ($3.value.includes(s)) {
+      if ($3.value.includes(s)) { // turn the blue pin into a grey pin
         $4.value.push(s);
         $3.value.splice($3.value.indexOf(s), 1);
       } else if ($4.value.includes(s)) {
         $4.value.splice($4.value.indexOf(s), 1);
-      } else $3.value.push(s); // mutable forcedNodes.push(s)
+        // if I am the pinned predicate, also unset me
+        if ($6.value[0] == d[0] && $6.value[1] == d[1])
+          $6.value = []
+      } else {
+        $3.value.push(s); // mutable forcedNodes.push(s)
+        // also set me as the pinned predicate
+        $6.value = d
+      }
 
       $4.value = $4.value;
       redraw();
@@ -251,9 +279,9 @@ function _9(sceneVersion){return(
 sceneVersion
 )}
 
-function _qPreview(DendryQuery,requiredNodes,forbiddenNodes,pinnedNodes,forcedNodes,$0,$1)
+function _queryPreview(makeQueryPreview,requiredNodes,forbiddenNodes,pinnedNodes,forcedNodes,$0,$1)
 {
-  return new DendryQuery(
+  return makeQueryPreview(
     {
       require: requiredNodes,
       forbid: forbiddenNodes,
@@ -261,15 +289,9 @@ function _qPreview(DendryQuery,requiredNodes,forbiddenNodes,pinnedNodes,forcedNo
       force: forcedNodes
     },
     $0.value,
-    $1.value,
-    "previewOnly"
+    $1.value
   );
 }
-
-
-function _queryPreview(qPreview){return(
-[qPreview.forceString, qPreview.argumentString].join("\n").trim()
-)}
 
 function _pinnedNodes(){return(
 []
@@ -352,9 +374,10 @@ function _debug(){return(
 []
 )}
 
-function _makeStateChart(hasSeen,hoverPredicate,mungePredicate,html,d3,$0,$1){return(
+function _makeStateChart(hasSeen,hoverPredicate,pinnedPredicate,mungePredicate,html,d3,$0,$1){return(
 async function makeStateChart() {
-  let worlds = (await hasSeen(hoverPredicate)).map((state) =>
+  let activePredicate = pinnedPredicate[0] ? pinnedPredicate : hoverPredicate
+  let worlds = (await hasSeen(activePredicate)).map((state) =>
     state.map((s) => mungePredicate(s, false))
   );
   let raw = worlds.map((state) => state.filter((s) => s[0] == "reaches"));
@@ -423,9 +446,11 @@ async function makeStateChart() {
 function _traceBuilder(){return(
 null
 )}
-
 function _hoverPredicate(){return(
 []
+)}
+function _pinnedPredicate(){return(
+  []
 )}
 
 function _filterIndex(Inputs,visibility){return(
@@ -844,78 +869,103 @@ function _mungePredicate(){return(
 }
 )}
 
-function _DendryQuery(ruleString,domainString,run){return(
-  class DendryQuery {
-    constructor(
-      constraint = { require: [], forbid: [], pin: [], force: [] },
-      horizon = 25,
-      timeoutAfter = 3000,
-      maxWorlds = 0, // 100
-      maxTraces = 400, // 200
-      previewOnly = false
-    ) {
-      if (!constraint.require) constraint.require = [];
-      if (!constraint.forbid) constraint.forbid = [];
-      if (!constraint.pin) constraint.pin = [];
-      if (!constraint.force) constraint.force = [];
-  
-      this.argumentString = `
-  ${constraint.require.map((u) => `goal(${u}).`).join("\n")}
-  ${constraint.forbid.map((u) => `poison(${u}).`).join("\n")}
-  
-  quality(Q) :- wants(X,Q,Op,V).
-  quality(Q) :- sets(X,Q,Op,V).
-  has(Q,0,1) :- quality(Q). 
-  
-  #const n=${horizon}.
-  `;
-      this.forceString = constraint.force.map((uv) => `pin(${uv}).`).join("\n");
-      let frontierCode = [
-        this.forceString,
-        this.argumentString,
-        ruleString,
-        domainString
-      ].join("\n");
-      this.pinString = constraint.pin.map((uv) => `pin(${uv}).`).join("\n");
-      let traceCode = [this.pinString, frontierCode].join("\n");
-  
-      this.worker = previewOnly
-        ? Promise.resolve({ frontier: null, traces: null })
-        : new Promise(async function (resolve, reject) {
-            // VERIFY: clingo-wasm doesn't want to run in parallel
-            console.log("running workers");
-            let frontier = await run(frontierCode, maxWorlds, [
-              "--enum-mode=brave"
-            ]);
-            let traces = await run(traceCode, maxTraces, []);
-            console.log("done");
-  
-            if (frontier.Result === "ERROR") reject("oops - frontier failed");
-            if (traces.Result === "ERROR") reject("oops - trace failed");
-            resolve({
-              frontier: frontier.Call[0].Witnesses.map((w) => w.Value),
-              traces: traces.Call[0].Witnesses.map((w) => w.Value)
-            });
-          });
-      this.timeout = new Promise(async function (resolve, reject) {
-        // await run; // on page load, don't start counting until wasm is ready
-        setTimeout(function () {
-          reject("Timed out after " + timeoutAfter / 1000 + "s");
-          // resolve({ frontier: null, traces: null });
-          // {traces: Time: { Total: timeoutAfter / 1000 }}
-        }, timeoutAfter);
+function makeArgumentString(constraint, horizon) {
+  return `
+${constraint.require.map((u) => `goal(${u}).`).join("\n")}
+${constraint.forbid.map((u) => `poison(${u}).`).join("\n")}
+
+quality(Q) :- wants(X,Q,Op,V).
+quality(Q) :- sets(X,Q,Op,V).
+has(Q,0,1) :- quality(Q). 
+
+#const n=${horizon}.
+`;
+}
+function makeForceString(constraint) {
+  return constraint.force.map((uv) => `pin(${uv}).`).join("\n");
+}
+function makePinString(constraint) {
+  return constraint.pin.map((uv) => `pin(${uv}).`).join("\n");
+}
+
+function _makeQueryPreview(ruleString, domainString) {
+  return (constraint, horizon, timeout) => {
+    return [
+      makeForceString(constraint),
+      makeArgumentString(constraint, horizon),
+      ruleString,
+      domainString
+    ].join("\n");
+  }
+}
+
+function _DendryQuery(ruleString,domainString,run){ return class DendryQuery {
+  constructor(
+    constraint = { require: [], forbid: [], pin: [], force: [] },
+    horizon = 25,
+    timeoutAfter = 3000,
+    maxWorlds = 0, // 100
+    maxTraces = 400 // 200
+  ) {
+    if (!constraint.require) constraint.require = [];
+    if (!constraint.forbid) constraint.forbid = [];
+    if (!constraint.pin) constraint.pin = [];
+    if (!constraint.force) constraint.force = [];
+
+    this.frontierCode = [
+      makeForceString(constraint),
+      makeArgumentString(constraint, horizon),
+      ruleString,
+      domainString
+    ].join("\n");
+    this.traceCode = [
+      makePinString(constraint),
+      this.frontierCode
+    ].join("\n");
+
+    let worker = (frontierCode, traceCode) =>
+      new Promise(async function (resolve, reject) {
+        // VERIFY: clingo-wasm doesn't want to run in parallel
+        console.log("running workers");
+
+        let frontier = await run(frontierCode, maxWorlds, [
+          "--enum-mode=brave"
+        ]);
+        let traces = await run(traceCode, maxTraces, []);
+        console.log("done");
+
+        if (frontier.Result === "ERROR") reject("oops - frontier failed");
+        if (traces.Result === "ERROR") reject("oops - trace failed");
+        console.log(frontier);
+        console.log(traces);
+        resolve({
+          frontier: frontier.Call[0].Witnesses.map((w) => w.Value),
+          traces: traces.Call[0].Witnesses.map((w) => w.Value)
+        });
       });
-      this.analysis = Promise.race([this.worker, this.timeout]);
-      // FIXME: halt webassembly worker thread on timeout
-  
-      this.getFrontier = async function () {
-        return (await this.analysis).frontier;
-      };
-      this.getTraces = async function () {
-        return (await this.analysis).traces;
-      };
-    }
-  })}
+    this.timeout = new Promise(async function (resolve, reject) {
+      // await run; // on page load, don't start counting until wasm is ready
+      setTimeout(function () {
+        reject("Timed out after " + timeoutAfter / 1000 + "s");
+        // resolve({ frontier: null, traces: null });
+        // {traces: Time: { Total: timeoutAfter / 1000 }}
+      }, timeoutAfter);
+    });
+    this.analysis = Promise.race([
+      // previewOnly ? Promise.resolve({ frontier: null, traces: null }) :
+      worker(this.frontierCode, this.traceCode),
+      this.timeout
+    ]);
+    // FIXME: halt webassembly worker thread on timeout
+
+    this.getFrontier = async function () {
+      return (await this.analysis).frontier;
+    };
+    this.getTraces = async function () {
+      return (await this.analysis).traces;
+    };
+  }
+}}
 
 function _ruleString(){return(
 `
@@ -1343,17 +1393,18 @@ export default function define(runtime, observer) {
 	// {url: new URL("../files/d40ed751d78762152ac802170df5e29559e7bc94ee5217c15098b8394504c05d9178a1daa9dd106136399f92fbf5ff72736e04f64284c523a09689fdc5eb4a71.json", import.meta.url), mimeType: "application/json", toString}
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
+  main.variable(observer()).define(["md"], _1);
 
   main.variable(observer()).define("legendSwatches", ["Swatches","colorByTag"], _legendSwatches);
   main.variable(observer()).define(["html","legendSwatches","hoverPredicate"], _3);
   main.variable(observer()).define("viewof peek", ["html","width","d3","xScale","steps","horizon","Event","mutable xSelection","visibilityChart"], _peek);
   main.variable(observer()).define("peek", ["Generators", "viewof peek"], (G, _) => G.input(_));
-  main.variable(observer()).define("visibilityChart", ["legend","html","d3","colorByTag","legendTags","mutable requiredNodes","mutable forbiddenNodes","stepFrequencies","mutable xSelection","mutable pinnedNodes","mutable forcedNodes","steps","mutable hoverPredicate"], _visibilityChart);
+  main.variable(observer()).define("visibilityChart", ["legend","html","d3","colorByTag","legendTags","mutable requiredNodes","mutable forbiddenNodes","stepFrequencies","mutable xSelection","mutable pinnedNodes","mutable forcedNodes","steps","mutable hoverPredicate","mutable pinnedPredicate"], _visibilityChart);
   main.variable(observer()).define("controlBox", ["html","viewof horizon","viewof timeout","viewof doQuery"], _controlBox);
   main.variable(observer()).define("inspectorBox", ["html","makeCard","scene","sceneVersion","makeStateChart"], _inspectorBox);
   main.variable(observer("sceneVersion")).define(["sceneVersion"], _9);
-  main.variable(observer("qPreview")).define("qPreview", ["DendryQuery","requiredNodes","forbiddenNodes","pinnedNodes","forcedNodes","viewof horizon","viewof timeout"], _qPreview);
-  main.variable(observer()).define("queryPreview", ["qPreview"], _queryPreview);
+  main.variable(observer("")).define("queryPreview", ["makeQueryPreview","requiredNodes","forbiddenNodes","pinnedNodes","forcedNodes","viewof horizon","viewof timeout"], _queryPreview);
+  // main.variable(observer()).define("queryPreview", ["makeQueryPreview"], _queryPreview);
   
   main.define("initial pinnedNodes", _pinnedNodes);
   main.variable(observer("mutable pinnedNodes")).define("mutable pinnedNodes", ["Mutable", "initial pinnedNodes"], (M, _) => new M(_));
@@ -1372,7 +1423,6 @@ export default function define(runtime, observer) {
   main.variable(observer()).define("viewof browseTag", ["Inputs","scenes"], _browseTag);
   main.variable(observer("browseTag")).define("browseTag", ["Generators", "viewof browseTag"], (G, _) => G.input(_));
   main.variable(observer()).define(["md","scenes","browseTag","d3"], _18);
-  main.variable(observer()).define(["md"], _1);
   
   main.variable(observer("xScale")).define("xScale", ["d3","horizon","width"], _xScale);
   main.variable(observer("viewof horizon")).define("viewof horizon", ["Inputs"], _horizon);
@@ -1384,11 +1434,14 @@ export default function define(runtime, observer) {
   main.define("initial debug", _debug);
   main.variable(observer("mutable debug")).define("mutable debug", ["Mutable", "initial debug"], (M, _) => new M(_));
   main.variable(observer("debug")).define("debug", ["mutable debug"], _ => _.generator);
-  main.variable(observer("makeStateChart")).define("makeStateChart", ["hasSeen","hoverPredicate","mungePredicate","html","d3","mutable traceBuilder","viewof horizon"], _makeStateChart);
+  main.variable(observer("makeStateChart")).define("makeStateChart", ["hasSeen","hoverPredicate","pinnedPredicate","mungePredicate","html","d3","mutable traceBuilder","viewof horizon"], _makeStateChart);
   main.define("initial traceBuilder", _traceBuilder);
   main.variable(observer("mutable traceBuilder")).define("mutable traceBuilder", ["Mutable", "initial traceBuilder"], (M, _) => new M(_));
   main.variable(observer("traceBuilder")).define("traceBuilder", ["mutable traceBuilder"], _ => _.generator);
+  main.define("initial pinnedPredicate", _pinnedPredicate);
+  main.variable(observer("mutable pinnedPredicate")).define("mutable pinnedPredicate", ["Mutable", "initial pinnedPredicate"], (M, _) => new M(_));
   main.define("initial hoverPredicate", _hoverPredicate);
+  main.variable(observer("pinnedPredicate")).define("pinnedPredicate", ["mutable pinnedPredicate"], _ => _.generator);
   main.variable(observer("mutable hoverPredicate")).define("mutable hoverPredicate", ["Mutable", "initial hoverPredicate"], (M, _) => new M(_));
   main.variable(observer("hoverPredicate")).define("hoverPredicate", ["mutable hoverPredicate"], _ => _.generator);
   main.variable(observer("viewof filterIndex")).define("viewof filterIndex", ["Inputs","visibility"], _filterIndex);
@@ -1420,6 +1473,8 @@ export default function define(runtime, observer) {
   main.variable(observer("lastSceneCandidates")).define("lastSceneCandidates", ["steps","horizon"], _lastSceneCandidates);
   main.variable(observer("hasSeen")).define("hasSeen", ["q"], _hasSeen);
   main.variable(observer("mungePredicate")).define("mungePredicate", _mungePredicate);
+
+  main.variable(observer("makeQueryPreview")).define("makeQueryPreview", ["ruleString","domainString","horizon"], _makeQueryPreview);
   main.variable(observer("DendryQuery")).define("DendryQuery", ["ruleString","domainString","run"], _DendryQuery);
   main.variable(observer("ruleString")).define("ruleString", _ruleString);
   main.variable(observer("preconditions")).define("preconditions", ["mungeOpsTree","nodesIn"], _preconditions);
