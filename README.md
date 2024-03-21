@@ -1,6 +1,12 @@
 # DendryScope - Skein for Dendry Games
+Nominated for best artifact at AIIDE 2023.
 
 Run a demo of DendryScope in your browser: https://jazztap.github.io/DendryScope/
+
+Or read the proceedings paper:
+https://ojs.aaai.org/index.php/AIIDE/article/view/27527
+
+## Local build options
 
 For convenience, the webpack build is included in this repository. It can be run using:
 ~~~sh
